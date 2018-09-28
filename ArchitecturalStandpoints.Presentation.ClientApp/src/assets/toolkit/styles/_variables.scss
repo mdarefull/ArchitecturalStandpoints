@@ -1,0 +1,102 @@
+//*---------------------------------------*
+//  Typeface
+//*---------------------------------------*
+$typeface: "Lato", sans-serif;
+
+//$typeface: "Helvetica Neue";
+
+//*---------------------------------------*
+//  Colors
+//*---------------------------------------*
+
+//$grey-800: #2f383f !default;
+//$grey-600: #606a73 !default;
+//$grey-400: #8e979e !default;
+//$grey-200: #d5d8db !default;    //niglesiz d5d9dc
+//$grey-100: #e9ebee !default;
+//$grey-50: #f2f4f5 !default;     //niglesiz f3f4f5
+
+$grey-800: #414141 !default;
+$grey-600: #888888 !default;
+$grey-400: #9F9F9F !default;
+$grey-200: #D2D2D2 !default;    //niglesiz d5d9dc
+$grey-100: #E0E0E0 !default;
+$grey-50: #EDEDED !default;
+
+$brand-cc-blue: #1266fA !default;
+$brand-cc-blue-dark: #202A5A !default;
+$brand-accent-green: #00CCAA !default;
+$brand-accent-orange: #FF693C !default;
+
+
+$brand-sky-blue: #58b6f5 !default;
+$brand-sky-blue-dark: #3395d7 !default;
+$brand-orange: #f39a4d !default;
+$brand-orange-dark: #d17829 !default;
+
+$status-blue: #58b6f5 !default;
+$status-blue-dark: #3395d7 !default;
+$status-orange: #f39a4d !default;
+$status-orange-dark: #d17829 !default;
+$status-green: #77bf69 !default;
+$status-green-dark: #529e42 !default;
+$status-pink: #FF7396 !default;
+$status-pink-dark: #D14366 !default;
+$status-pink-light: #FAEBEF !default;
+
+$cool-blue-darker: #041d45 !default;
+$cool-blue-dark: #0B42A2 !default;
+$cool-blue: #88B2FC !default;
+$cool-blue-light: #E6EFFE !default;
+$cool-blue-lighter: #F7FBFF !default;
+
+// remove
+$silver: #e6e9eb !default;
+$slate: #263a4c !default;
+$clay: $grey-50 !default;
+
+//*---------------------------------------*
+//  Links
+//*---------------------------------------*
+$primary-link: $brand-cc-blue !default;
+$secondary-link: $cool-blue-dark !default;
+$inverse-link: $cool-blue !default;
+
+//*---------------------------------------*
+//  Buttons
+//*---------------------------------------*
+$btn-primary-bg: $brand-cc-blue !default;
+$btn-primary-disabled: $grey-200;
+$btn-primary-inverse-hover-bg: $cool-blue-light;
+
+$btn-secondary-text: $brand-cc-blue-dark;
+
+//*---------------------------------------*
+//  Border-radius
+//*---------------------------------------*
+$border-radius: 4px !default;
+$border-radius-lg: 8px !default;
+
+$box-shadow-subtle: 0 1px 1px 0 rgba(0, 0, 0, 0.1) !default;
+$box-shadow-raise: 0 2px 6px 0 rgba(0, 0, 0, 0.1) !default;
+$box-shadow-hover: 0 4px 12px 0 rgba(0, 0, 0, 0.2) !default;
+
+//*---------------------------------------*
+//  Spacing class modifiers available
+//  (ex: .ml-2 = margin-left: 8px)
+//
+//  *-1: 4px
+//  *-2: 8px
+//  *-3: 12px
+//  *-4: 16px
+//  *-5: 24px
+//  *-6: 40px
+//  *-7: 60px
+//*---------------------------------------*
+$spacer-1: 4px !default;
+$spacer-2: 8px !default;
+$spacer-3: 12px !default;
+$spacer-4: 16px !default;
+$spacer-5: 24px !default;
+$spacer-6: 40px !default;
+$spacer-7: 60px !default;

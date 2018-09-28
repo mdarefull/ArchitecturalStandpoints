@@ -1,0 +1,38 @@
+//*---------------------------------------*
+//  Combo Progress
+//*---------------------------------------*
+.combo-progress {
+    min-width: 240px;
+
+    .dropdown .dropdown-menu {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .dropdown > a {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.43;
+        color: $cool-blue-dark;
+    }
+
+    .divider {
+        display: block;
+        width: 1px;
+        height: 14px;
+        background-color: $grey-200;
+    }
+
+    .progress {
+        border-radius: 3px;
+
+        .progress-bar {
+            height: 5px;
+            border-radius: 3px;
+        }
+    }
+        strong{
+           color: $grey-800;
+           margin-right: 5px;
+        }
+}

@@ -1,0 +1,148 @@
+//*---------------------------------------*
+//  Color
+//*---------------------------------------*
+
+//*---------------------------------------*
+//  Text
+//*---------------------------------------*
+.text-brand {
+    color:$brand-sky-blue !important;
+}
+
+.text-muted {
+    color: $grey-400 !important;
+}
+
+.text-primary {
+    color: $brand-sky-blue-dark !important;
+}
+
+.text-dark {
+    color: $grey-800 !important;
+}
+
+.text-success {
+    color: $status-green-dark !important;
+}
+
+.text-info {
+    color: $grey-600 !important;
+}
+
+.text-warning {
+    color: $brand-orange-dark !important;
+}
+
+.text-danger {
+    color: $status-pink-dark !important;
+}
+
+//*---------------------------------------*
+//  Background
+//*---------------------------------------*
+.bg-brand {
+    color: white;
+    background-color: $brand-sky-blue-dark !important;
+
+    h1, h2, h3, h4, h5, h6, li, dl, p {
+        color: white;
+    }
+}
+.bg-header {
+    color: white;
+    background-color: $brand-cc-blue !important;
+
+    h1, h2, h3, h4, h5, h6, li, dl, p {
+        color: white;
+    }
+}
+.bg-primary {
+    color: white;
+    background-color: $brand-sky-blue !important;
+
+    h1, h2, h3, h4, h5, h6, li, dl, p {
+        color: white;
+    }
+}
+
+.bg-dark, .bg-inverse {
+    color: white;
+    background-color: $grey-800 !important;
+
+    h1, h2, h3, h4, h5, h6, li, dl, p {
+        color: white;
+    }
+}
+
+.bg-success {
+    color: white;
+    background-color: $status-green-dark !important;
+
+    h1, h2, h3, h4, h5, h6, li, dl, p {
+        color: white;
+    }
+}
+
+.bg-default {
+    color: white;
+    background-color: $brand-sky-blue !important;
+
+    h1, h2, h3, h4, h5, h6, li, dl, p {
+        color: white;
+    }
+}
+.bg-faded{
+    background-color: $grey-50;
+    color: $grey-600;
+}
+
+.bg-info {
+    color: #0B42A2 !important;
+    background-color: $cool-blue-light !important;
+}
+
+.bg-warning {
+    color: white;
+    background-color: $status-orange-dark !important;
+
+    h1, h2, h3, h4, h5, h6, li, dl, p {
+        color: white;
+    }
+}
+
+.bg-danger {
+    color: $status-pink-dark;
+    background-color: $status-pink-light !important;
+}
+
+.bg-white {
+    background-color: white !important;
+}
+
+.bg-blue-darker{
+    color: white;
+    background-color: $cool-blue-darker !important;
+
+    h1, h2, h3, h4, h5, h6, li, dl, p {
+        color: white;
+    }
+}
+
+//*---------------------------------------*
+//  Status Warning
+//*---------------------------------------*
+.icon.status-warning {
+    color: $status-orange;
+}
+
+.icon.status-danger {
+    color: $status-pink;
+}
+
+.icon.status-pending {
+    color: $status-blue-dark;
+}
+
+.icon.status-success {
+    color: $status-green-dark;
+}

@@ -1,0 +1,58 @@
+//*---------------------------------------*
+//  Font Size
+//*---------------------------------------*
+@function font-size($level) {
+    @return map-get(map-get($type-settings, $level), "font-size");
+}
+
+//*---------------------------------------*
+//  Font Family
+//*---------------------------------------*
+@function font-family($level) {
+    @return map-get(map-get($type-settings, $level), "font-family");
+}
+
+//*---------------------------------------*
+//  Line Height
+//*---------------------------------------*
+@function line-height($level) {
+    @return map-get(map-get($type-settings, $level), "line-height");
+}
+
+//*---------------------------------------*
+//  Letter Spacing
+//*---------------------------------------*
+@function letter-spacing($level) {
+    @return map-get(map-get($type-settings, $level), "letter-spacing");
+}
+
+//*---------------------------------------*
+//  Type Setting (font-size, font-family, line-height, letter-spacing)
+//*---------------------------------------*
+@mixin type-setting($level: p) {
+    font-size: font-size($level);
+    font-family: font-family($level);
+    line-height: line-height($level);
+    letter-spacing: letter-spacing($level);
+}
+
+//*---------------------------------------*
+//  Breakpoint
+//
+//  Ex: @include breakpoint(sm) {...}
+//  Ex: @include breakpoint(xs, max-width) {...}
+//*---------------------------------------*
+@mixin breakpoint($bp, $rule: min-width) {
+    @media screen and (#{$rule}: map-get($breakpoints, $bp)) {
+        @content;
+    }
+}
+
+//*---------------------------------------*
+//  PX to REM
+//
+//  Ex: font-size: rem(50);
+//*---------------------------------------*
+@function rem($pixels, $context: $base-size) {
+    @return #{$pixels / $context}rem;
+}

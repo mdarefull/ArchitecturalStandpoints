@@ -1,0 +1,176 @@
+%pill-button {
+    display: inline-block;
+    padding: 6px $spacer-4;
+    width: auto !important;
+    height: 30px;
+    color: $cool-blue-dark;
+
+    @extend .p-small;
+
+    font-weight: 600;
+    background-color: $cool-blue-lighter;
+    border: 1px solid $cool-blue;
+    border-radius: $spacer-4;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+
+    &:hover, &:focus {
+        outline: 0 !important;
+        background-color: $cool-blue-light;
+        border-color: $cool-blue-dark;
+    }
+}
+
+//*---------------------------------------*
+//  Combo Search
+//*---------------------------------------*
+.combo-search {
+    position: relative;
+    padding: 2px 40px 0 40px !important;
+
+    input[type="text"] {
+        padding: 0 !important;
+    }
+
+    .icon-filter{
+        fill:$cool-blue-dark;
+        position: absolute;
+        top: 12px;
+        cursor: pointer;
+    }
+    .icon-search {
+        position: absolute;
+        top: 12px;
+        fill: $cool-blue;
+        cursor: pointer;
+    }
+
+    .icon-search {
+        top: 14px;
+        left: $spacer-4;
+    }
+
+    .icon-filter {
+        right: $spacer-4;
+    }
+
+    .search-dropdown {
+        margin-top: $spacer-1;
+        padding: 15px;
+        max-width: 300px;
+
+        li {
+            float: left;
+            margin-right: $spacer-2;
+            margin-bottom: $spacer-1;
+            padding: $spacer-1 $spacer-4;
+            color: $cool-blue-dark;
+
+            @extend .p-small;
+
+            font-weight: 600;
+            background-color: $cool-blue-lighter;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+            border: solid 1px $cool-blue;
+            border-radius: $spacer-4;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #E6EFFE;
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+                border: solid 1px #457299;
+            }
+        }
+    }
+
+    .bootstrap-tagsinput {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: $spacer-6;
+
+        #standard-tags-wrap {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .tag {
+            position: relative;
+            margin-bottom: $spacer-1;
+            margin-right: $spacer-2;
+            padding-right: 32px;
+            color: $cool-blue-dark;
+
+            @extend %pill-button;
+        }
+
+        span[data-role="remove"] {
+            position: absolute;
+            top: 4px;
+            right: 5px;
+            z-index: 3;
+            width: 20px;
+            height: 20px;
+
+            @extend .text-hide;
+
+            background-image: url(../images/icon-deselect.svg);
+            background-size: 20px;
+            background-repeat: no-repeat;
+        }
+    }
+
+    //*---------------------------------------*
+    //  Bootstrap Select
+    //*---------------------------------------*
+    .bootstrap-select {
+        margin-bottom: $spacer-1;
+        margin-right: $spacer-1;
+        width: auto !important;
+        display: inline-block;
+        min-width: 0px;
+        border: 0;
+
+        //*---------------------------------------*
+        //  Dropdown Toggle
+        //*---------------------------------------*
+        .dropdown-toggle {
+            padding-right: 54px;
+
+            @extend %pill-button;
+
+            &::after {
+                display: none;
+            }
+
+            &:active,
+            &[aria-expanded="true"] {
+                color: white;
+                background-color: $cool-blue-dark;
+            }
+
+            .close-tag {
+                position: absolute;
+                top: 4px;
+                right: 5px;
+                z-index: 3;
+                width: 20px;
+                height: 20px;
+
+                @extend .text-hide;
+
+                background-image: url(../images/icon-deselect.svg);
+                background-size: 20px;
+                background-repeat: no-repeat;
+            }
+
+            .filter-option {
+                position: relative;
+
+                &:before {
+                    content: attr(data-tag);
+                    margin-right: 2px;
+                }
+            }
+        }
+    }
+}

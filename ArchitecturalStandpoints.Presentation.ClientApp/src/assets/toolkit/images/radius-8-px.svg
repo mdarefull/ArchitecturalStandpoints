@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="120" height="120" fill="#8E979E" rx="8"/>
+        <text fill="#FFF" font-family="Lato-Regular, Lato" font-size="14">
+            <tspan x="49" y="64">8px</tspan>
+        </text>
+    </g>
+</svg>

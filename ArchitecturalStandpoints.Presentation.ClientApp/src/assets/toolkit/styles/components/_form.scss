@@ -1,0 +1,399 @@
+//*---------------------------------------*
+//  Form
+//*---------------------------------------*
+form {
+    color: #414141;
+
+    @extend .p;
+
+    border-radius: $border-radius;
+}
+
+//*---------------------------------------*
+//  Fieldset
+//*---------------------------------------*
+fieldset {
+    padding: 0;
+    border: 0;
+
+    legend {
+        display: inline-block;
+        margin-bottom: .5rem;
+
+        @extend .p;
+    }
+}
+
+//*---------------------------------------*
+//  Form Control Label
+//*---------------------------------------*
+.form-control-label {
+    color: $grey-600;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1.45;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+
+    sup {
+        top: 0;
+        color: #ed8b41;
+
+        @extend .heading-6;
+
+        font-weight: bold;
+    }
+}
+
+//*---------------------------------------*
+//  Form Control
+//*---------------------------------------*
+.form-control,
+input[type="text"],
+input[type="search"],
+input[type="password"],
+textarea {
+    padding: 7px $spacer-4;
+    color: #414141;
+    font-size: 14px;
+    font-family: $typeface;
+    line-height: 1.43;
+    letter-spacing: 0.2px;
+    font-weight: initial;
+    border-color: $grey-200;
+    border-radius: $border-radius !important;
+
+    &:focus {
+        color: initial;
+        border-color: $brand-cc-blue;
+    }
+
+    //*---------------------------------------*
+    //  Read Only
+    //*---------------------------------------*
+    &[readonly] {
+        background-color: $grey-50;
+        border-color: $grey-50;
+    }
+
+    //*---------------------------------------*
+    //  Read Only .bg-info
+    //*---------------------------------------*
+    &.bg-info[readonly] {
+        color: $brand-cc-blue;
+        background-color: $cool-blue-light;
+        border-color: $cool-blue-light;
+    }
+
+    //*---------------------------------------*
+    //  Disabled
+    //*---------------------------------------*
+    &:disabled,
+    &.disabled {
+        color: $grey-200;
+        background-color: transparent;
+        border-color: $grey-100;
+    }
+
+    //*---------------------------------------*
+    //  Large
+    //*---------------------------------------*
+    &.form-control-lg {
+        padding: 11px 20px 12px;
+        font-size: 15px;
+        line-height: 1.33;
+        letter-spacing: 0.2px;
+    }
+
+    //*---------------------------------------*
+    //  Form Control Datepicker
+    //*---------------------------------------*
+    &.form-control-datepicker {
+        padding-left: $spacer-6;
+        background-image: url(../images/icon-calendar.svg);
+        background-position: center left $spacer-4;
+        background-size: $spacer-4;
+        background-repeat: no-repeat;
+    }
+
+    //*---------------------------------------*
+    //  Placeholder
+    //*---------------------------------------*
+    &::-webkit-input-placeholder {
+        color: $grey-400;
+    }
+
+    &::-moz-placeholder {
+        color: $grey-400;
+    }
+
+    &:-ms-input-placeholder {
+        color: $grey-400;
+    }
+
+    &:-moz-placeholder {
+        color: $grey-400;
+    }
+}
+
+//*---------------------------------------*
+//  Input[type="search"], Form Control Search
+//*---------------------------------------*
+input[type="search"],
+.form-control.form-control-search {
+    padding-left: $spacer-6 !important;
+    background-image: url(../images/icon-search.svg);
+    background-position: center left $spacer-4;
+    background-repeat: no-repeat;
+    background-size: $spacer-4;
+}
+
+//*---------------------------------------*
+//  Form Control Feedback
+//*---------------------------------------*
+.form-control-feedback {
+    margin-top: $spacer-2;
+    padding: $spacer-3;
+
+    @extend .p-small;
+
+    font-weight: 600;
+    background-color: $grey-50;
+    border-radius: $border-radius;
+}
+
+//*---------------------------------------*
+//  Form Helper
+//*---------------------------------------*
+.form-helper {
+    @extend .form-control-feedback;
+
+    padding: $spacer-3;
+
+    @extend .bg-info;
+
+    border-left: 3px solid #0B42A2;
+}
+
+//*---------------------------------------*
+//  Form Group
+//*---------------------------------------*
+.form-group {
+    margin-bottom: $spacer-5;
+
+    //*---------------------------------------*
+    //  Form Group .Has Danger
+    //*---------------------------------------*
+    &.has-danger {
+        .form-control:not(.bootstrap-select) {
+            padding-left: 13px;
+            background-image: none;
+            border-left: 3px solid $status-pink-dark;
+        }
+
+        .form-control-label {
+            color: $status-pink-dark;
+        }
+
+        .form-control-feedback {
+            @extend .bg-danger;
+        }
+    }
+
+    //*---------------------------------------*
+    //  Disabled
+    //*---------------------------------------*
+    &.form-group-disabled {
+        label {
+            color: $grey-200;
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Bootstrap overrides
+//*---------------------------------------*
+.has-danger .form-control-feedback,
+.has-danger .form-control-label,
+.has-danger .col-form-label,
+.has-danger .form-check-label,
+.has-danger .custom-control {
+    color: #535d66;
+}
+
+//*---------------------------------------*
+//  Custom Control
+//*---------------------------------------*
+.custom-control {
+    align-items: center;
+    margin: 0;
+    padding-left: $spacer-6;
+    min-height: 28px;
+
+    &:hover {
+        .custom-control-indicator {
+            border-color: $grey-400;
+        }
+    }
+
+    .custom-control-input:disabled ~ .custom-control-indicator {
+        background-color: transparent;
+        border-color: $grey-100;
+    }
+
+    .custom-control-input:disabled ~ .custom-control-description {
+        color: $grey-200;
+    }
+
+    .custom-control-input:focus ~ .custom-control-indicator {
+        box-shadow: none;
+    }
+
+    &.custom-control-readonly {
+        display: flex;
+        padding: 7px 16px;
+        cursor: default;
+        background-color: $grey-50;
+        border-radius: 4px;
+
+        .custom-control-indicator {
+            display: none;
+        }
+
+        .custom-control-description {
+            color: #414141;
+            font-size: 14px;
+            line-height: 1.43;
+            letter-spacing: 0.2px;
+            cursor: default;
+        }
+
+        ~ .icon {
+            color: $grey-400;
+        }
+
+        // BG-INFO
+        &.bg-info {
+            .custom-control-description {
+                color: $cool-blue-darker;
+            }
+
+            ~ .icon {
+                color: $cool-blue;
+            }
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Custom Checkbox
+//*---------------------------------------*
+.custom-checkbox {
+    .custom-control-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 28px;
+        width: 28px;
+        background-color: white;
+        border: 1px solid $grey-200;
+        border-radius: $border-radius;
+    }
+
+    .custom-control-input:checked ~ .custom-control-indicator {
+        background-color: $brand-cc-blue;
+        background-image: url(../images/icon-check-white.svg);
+        border-color: $brand-cc-blue;
+    }
+}
+
+//*---------------------------------------*
+//  Custom Radio
+//*---------------------------------------*
+.custom-radio {
+    .custom-control-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 28px;
+        width: 28px;
+        background-color: white;
+        border: 1px solid $grey-200;
+        border-radius: 50%;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            background-color: transparent;
+            border-radius: 100%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .custom-control-input:checked ~ .custom-control-indicator {
+        background-color: white;
+        border-color: $brand-cc-blue;
+
+        &:after {
+            background-color: $brand-cc-blue;
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Form Control Wrapper
+//*---------------------------------------*
+.form-control-wrapper {
+    position: relative;
+
+    > .icon {
+        position: absolute;
+        top: 50%;
+        right: $spacer-4;
+        transform: translateY(-50%);
+    }
+
+    > .form-control {
+        padding-right: 44px;
+
+        &.form-control-currency {
+            padding-right: 82px;
+
+            ~ span {
+                position: absolute;
+                top: 50%;
+                right: 44px;
+                font-size: 14px;
+                line-height: 1.43;
+                letter-spacing: 0.2px;
+                transform: translateY(-50%);
+            }
+        }
+
+        // READONLY
+        &[readonly] {
+            ~ .form-control-currency, ~ .icon {
+                color: $grey-400;
+            }
+        }
+
+        // .BG-INFO
+        &.bg-info[readonly] {
+            ~ .form-control-currency, ~ .icon {
+                color: $cool-blue;
+            }
+        }
+    }
+
+    // TEXTAREA
+    textarea.form-control {
+        ~ .icon {
+            top: 12px;
+            transform: none;
+        }
+    }
+}

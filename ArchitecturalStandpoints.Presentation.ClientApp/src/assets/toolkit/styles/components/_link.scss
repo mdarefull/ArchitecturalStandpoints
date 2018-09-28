@@ -1,0 +1,44 @@
+//*---------------------------------------*
+//  Link
+//*---------------------------------------*
+a {
+    color: $primary-link;
+    &:focus{
+        text-decoration:none;
+    }
+    &.primary-link{
+        &:hover {
+            color: $primary-link;
+            text-decoration: underline !important;
+        }
+        &:active {
+            color: $secondary-link !important;
+        }
+        &:focus {
+            color: $primary-link;
+            text-decoration: none;
+        } 
+    }
+
+    &.link-secondary {
+        color: $secondary-link;
+        &:active{
+            color: #202a5a !important;
+            text-decoration: none;
+        }
+    }
+
+    &.link-inverse {
+        color: $inverse-link;
+        &:hover {
+            text-decoration: underline !important;
+        }
+        &:active {
+            color: #e6effe !important;
+            text-decoration: none;
+        }
+        &:focus {
+            text-decoration: none;
+        } 
+    }
+}

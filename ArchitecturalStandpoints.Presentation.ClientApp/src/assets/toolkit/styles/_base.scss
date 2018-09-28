@@ -1,0 +1,64 @@
+//*---------------------------------------*
+//  General
+//*---------------------------------------*
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    position: relative;
+    color: $grey-600;
+    font-family: 'Lato', sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: #F3F4F5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ul, ol {
+    margin: 0;
+}
+
+//*---------------------------------------*
+//  Hidden
+//
+//  hide except for screen readers
+//*---------------------------------------*
+.hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+//*---------------------------------------*
+//  Skip to Main
+//*---------------------------------------*
+[href="#main"] {
+    position: absolute;
+    top: 0;
+    right: 100%;
+
+    &:focus {
+        right: auto;
+    }
+}

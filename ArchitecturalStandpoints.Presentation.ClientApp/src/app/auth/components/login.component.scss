@@ -1,0 +1,37 @@
+.login-container {
+  background-color: #202a5a;
+}
+.login-location-select{
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.login-container div:first-child {
+  flex-grow: 1;
+}
+.login-form-container{
+  max-width: 500px;
+  margin: auto;
+}
+.login-sign-up-label{
+  color: #FFFFFF;
+}
+.login-sign-up {
+  color: #88B2FC;
+}
+.login-help-icon{
+  vertical-align: bottom;
+  cursor: pointer;  
+}
+.footer {
+  background-color: #202a5a;
+}
+.location-options{
+   width: 100%;
+}
+.user-input::-ms-clear {
+  display: none;
+}
+.password-input::-ms-reveal,
+.password-input::-ms-clear {
+  display: none;
+}

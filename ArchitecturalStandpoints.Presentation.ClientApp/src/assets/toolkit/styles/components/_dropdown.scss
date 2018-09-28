@@ -1,0 +1,189 @@
+//*---------------------------------------*
+//  Dropdown
+//*---------------------------------------*
+.dropdown {
+    cursor: pointer;
+
+    //*---------------------------------------*
+    //  Dropdown Menu
+    //*---------------------------------------*
+    .dropdown-menu {
+        margin-top: $spacer-1;
+        padding: 0;
+        min-width: 260px;
+        color: $grey-600;
+        overflow: hidden;
+        border: solid 1px $grey-200;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+
+        .dropdown-item:first-of-type {
+            margin-top: $spacer-2;
+        }
+
+        .dropdown-item:last-of-type {
+            margin-bottom: $spacer-2;
+        }
+    }
+
+    //*---------------------------------------*
+    //  Dropdown Item
+    //*---------------------------------------*
+    .dropdown-item {
+        padding: $spacer-2 $spacer-4 !important;
+        color: #414141;
+
+        @extend .p;
+
+        &:hover {
+            background-color: $cool-blue-light;
+            box-shadow: inset 3px 0 0 0 $brand-cc-blue;
+            text-decoration: none !important;
+        }
+
+        &.disabled {
+            color: $grey-400;
+
+            &:hover {
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+    }
+
+    //*---------------------------------------*
+    //  Dropdown Masthead
+    //*---------------------------------------*
+    .dropdown-masthead {
+        padding: $spacer-3 $spacer-4;
+        color: $grey-600;
+
+        @extend .heading-5;
+
+        font-weight: 600;
+        background-color: $cool-blue-lighter;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        &.menu-notification{
+            width: 100%;
+            display:inline-flex;
+            span:nth-child(2){
+                color:#0b42a2 !important;
+                position: absolute;
+                right: 10px;
+                font-size:12px !important;
+            }
+            span.notification-options{
+                color:#0b42a2 !important;
+                margin:0 auto;
+                font-size:12px !important;
+            }
+            
+        }
+    }
+    //*---------------------------------------*
+    //  Dropdown Header
+    //*---------------------------------------*
+    .dropdown-header {
+        padding: $spacer-2 $spacer-4;
+        color: $grey-600;
+        cursor: default;
+
+        @extend .heading-6;
+    }
+
+    //*---------------------------------------*
+    //  Remove Caret by default
+    //*---------------------------------------*
+    .dropdown-toggle::after {
+        display: none;
+    }
+}
+
+//*---------------------------------------*
+//  Bootstrap override
+//*---------------------------------------*
+.btn-secondary:active,
+.btn-secondary.active,
+.show > .btn-secondary.dropdown-toggle {
+    color: white;
+    background-color: $cool-blue-dark;
+    svg{
+        fill:white !important;
+    }
+}
+
+//*---------------------------------------*
+//  Dropdown Notifications
+//*---------------------------------------*
+.dropdown-notifications {
+    position: relative;
+    opacity: 0.5;
+
+    &.active {
+        opacity: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: 12px;
+            width: $spacer-2;
+            height: $spacer-2;
+            background-color: #f39a4d;
+            border-radius: 50%;
+        }
+    svg{
+        fill:white;
+    }
+}
+
+    div[aria-labelledby="dropdownNotifications"] {
+        min-width: 300px !important;
+        height: 360px !important;
+        overflow-y: scroll !important;
+    }
+}
+
+//*---------------------------------------*
+//  Dropdown Menu Breakpoints
+//*---------------------------------------*
+.dropdown-menu-sm-right {
+    @include media-breakpoint-up(sm) {
+        right: 0;
+        left: auto;
+    }
+}
+
+.dropdown-menu-md-right {
+    @include media-breakpoint-up(md) {
+        right: 0;
+        left: auto;
+    }
+}
+
+.dropdown-menu-lg-right {
+    @include media-breakpoint-up(lg) {
+        right: 0;
+        left: auto;
+    }
+}
+
+.dropdown-menu-xl-right {
+    @include media-breakpoint-up(xl) {
+        right: 0;
+        left: auto;
+    }
+}
+
+//*---------------------------------------*
+//  Bootstrap 3 fallbacks
+//*---------------------------------------*
+.open > .dropdown-menu,
+.collapse.in {
+    display: block;
+}
+
+.open > .btn-secondary.dropdown-toggle {
+    color: white;
+    background-color: $cool-blue-dark;
+}

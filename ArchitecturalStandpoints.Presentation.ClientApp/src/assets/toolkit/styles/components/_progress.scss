@@ -1,0 +1,19 @@
+//*---------------------------------------*
+//  Progress
+//*---------------------------------------*
+.progress {
+    height: 5px;
+    background-color: $grey-50;
+
+    .progress-bar {
+        background-color: $brand-sky-blue;
+
+        &.bg-primary {
+            background-color: $brand-sky-blue;
+        }
+
+        &.bg-danger {
+            background-color: $status-pink !important;
+        }
+    }
+}

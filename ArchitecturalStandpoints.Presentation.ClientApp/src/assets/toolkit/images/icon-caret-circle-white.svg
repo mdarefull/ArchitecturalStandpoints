@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <g fill="#FFF" fill-rule="evenodd">
+        <rect width="20" height="20" fill-opacity=".24" rx="10"/>
+        <path fill-rule="nonzero" d="M10 10.586L7.707 8.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l3-3a1 1 0 1 0-1.414-1.414L10 10.586z"/>
+    </g>
+</svg>

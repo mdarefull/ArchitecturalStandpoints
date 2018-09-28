@@ -1,0 +1,186 @@
+//*---------------------------------------*
+//  Typography
+//*---------------------------------------*
+a {
+    font-weight: 600;
+}
+
+h1, .heading-1 {
+    color: #414141;
+    font-size: 36px;
+    line-height: 1.33;
+    letter-spacing: 0.2px;
+}
+
+.heading-2 {
+    color: #414141;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.2px;
+}
+
+h2, h3, .heading-3 {
+    color: #414141;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.33;
+    letter-spacing: 0.2px;
+}
+
+h4, .heading-4 {
+    color: #414141;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.38;
+    letter-spacing: 0.2px;
+}
+
+h5, .heading-5 {
+    color: #414141;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+}
+
+h6, .heading-6 {
+    color: #414141;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1.45;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.p-large {
+    font-size: 16px;
+    line-height: 1.38;
+    letter-spacing: 0.2px;
+}
+
+.p {
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 0.2px;
+}
+
+.p-small, address {
+    font-size: 13px;
+    line-height: 1.38;
+    letter-spacing: 0.2px;
+}
+
+small, .p-xs {
+    font-size: 12px;
+    line-height: 1.42;
+    letter-spacing: 0.2px;
+}
+
+sup {
+    top: 0;
+
+    @extend .p-small;
+
+    font-weight: 600;
+}
+
+.text-muted {
+    color: $grey-400 !important;
+}
+.f-line{
+    border: solid 0.5px #e8ebed;
+    display:flex;
+    margin: 40px 0;
+}
+
+.legend-required {
+    @extend .p-small;
+
+    font-weight: 600;
+
+    @extend .text-muted;
+
+    sup {
+        @extend .text-warning;
+    }
+}
+
+//*---------------------------------------*
+//  Weight
+//
+//  .font-weight-bold
+//  .font-weight-semibold
+//  .font-weight-normal
+//*---------------------------------------*
+.font-weight-semibold {
+    font-weight: 600 !important;
+}
+
+//*---------------------------------------*
+//  Spacers
+//
+// .spacer-1 = 4px
+// .spacer-2 = 8px
+// .spacer-3 = 12px
+// .spacer-4 = 16px
+// .spacer-5 = 24px
+// .spacer-6 = 40px
+// .spacer-7 = 60px
+//*---------------------------------------*
+.spacer-xl {
+    // 40px x 60px
+    padding: $spacer-6 $spacer-7;
+}
+
+.spacer-lg {
+    // 24px x 40px
+    padding: $spacer-5 $spacer-6;
+}
+
+.spacer-md {
+    // 16px x 24px
+    padding: $spacer-4 $spacer-5;
+}
+
+.spacer-sm {
+    // 12px x 16px
+    padding: $spacer-3 $spacer-4;
+}
+
+//*---------------------------------------*
+//  Box Shadow
+//*---------------------------------------*
+.box-shadow {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.f-header{
+    font-family: $typeface !important;
+}
+.f-typography-box {
+    h1,span,p{
+        font-family: $typeface !important;
+    }
+}
+.f-item-htags {
+    h1,p{
+        font-family: $typeface !important;
+    }
+    &.secondary-font{
+        h1,p{
+            font-family: 'Brasley', sans-serif !important;
+        }
+    }
+}
+
+// Align flex end //
+.align-f-end{
+    align-items: flex-end !important;
+}
+.align-f-center{
+    align-items: center !important;
+}
+.align-f-baseline{
+    align-items: baseline !important;
+}

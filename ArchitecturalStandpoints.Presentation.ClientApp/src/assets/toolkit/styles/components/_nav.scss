@@ -1,0 +1,101 @@
+//*---------------------------------------*
+//  Nav Tabs
+//*---------------------------------------*
+.nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    border: 0;
+
+    .nav-item {
+        align-self: flex-end;
+        margin: 0 2.5rem 0 0;
+
+        .nav-link {
+            padding: 0 0 10px;
+            color: #6b8499;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+
+            &:hover {
+                color: #e6772e;
+            }
+
+            &.active {
+                color: #e6772e;
+                border-bottom: 2px solid #e6772e;
+            }
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Navbar
+//*---------------------------------------*
+.navbar {
+    padding: $spacer-3 $spacer-5;
+
+    .navbar-toggler {
+        padding: 0;
+
+        &.navbar-toggler-right {
+            top: $spacer-3;
+            right: $spacer-5;
+        }
+
+        .navbar-toggler-icon {
+            height: $spacer-5;
+        }
+    }
+
+    .navbar-collapse {
+        align-items: center;
+    }
+
+    @include media-breakpoint-down(lg) {
+        .navbar-collapse {
+            /*padding-bottom: 1rem;*/
+
+            .navbar-nav {
+                margin-top: 1rem;
+                margin-bottom: 0.5rem;
+
+                li.nav-item {
+                    a {
+                        display: block;
+                        padding: 0.5rem 0;
+                    }
+                }
+
+                li:not(.nav-item) {
+                    margin-top: 0.5rem;
+                }
+            }
+
+            .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+                margin-bottom: 0.5rem;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .user-avatar {
+                margin-top: 0.5rem;
+                width: 100%;
+                border-radius: 0;
+
+                a {
+                    display: block;
+                    width: 100%;
+                }
+
+                .dropdown-menu {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

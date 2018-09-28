@@ -1,0 +1,16 @@
+.read-more {
+    display: none;
+}
+
+.read-more-content span {
+    display: none;
+}
+
+.js-read-more {
+    margin-top: $spacer-1;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}

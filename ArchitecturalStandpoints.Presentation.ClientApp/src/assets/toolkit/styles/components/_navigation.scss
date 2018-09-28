@@ -1,0 +1,253 @@
+//*---------------------------------------*
+//  Navigation List
+//*---------------------------------------*
+.navigation-list {
+    ul {
+        li {
+            a {
+                display: flex;
+                flex-direction: column;
+                padding: $spacer-5 0;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 1.17;
+                letter-spacing: 0.2px;
+                text-align: center;
+            }
+
+            img,
+            .icon {
+                display: flex;
+                align-self: center;
+                margin-bottom: $spacer-2;
+            }
+        }
+    }
+
+    &.bg-blue-darker {
+        a {
+            color: rgba(255, 255, 255, 0.5);
+
+            img,
+            .icon {
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+        nav{
+            background-color: #041d45;
+        }
+        li.active,
+        a:hover {
+            color: white;
+            transition: all 0.25s;
+
+            a {
+                color: white;
+            }
+
+            img,
+            .icon {
+                color: white;
+            }
+        }
+
+        li.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Navigation Wizard
+//*---------------------------------------*
+.navigation-wizard-container{
+    button{
+        float: right;
+    }
+}
+.wizard-progress-bar{
+    .progress-container{
+        display: inline-flex;
+        float: right;
+    }
+    button{
+        float: right;
+        margin-left:15px;
+    }
+    .progress{
+        width:100px;
+        background-color:#606a73;
+        margin:16px 5px 0 0;
+        div{
+            width: 0% !important;
+        }
+        
+    }
+    span{
+        display: inline-block;
+        margin-top: 5px;
+        margin-left:5px;
+        font-size:14px;
+        color:white;
+        font-weight: 600;
+    }
+    div{
+        span{
+            margin-top:10px;
+            color: #888888;
+            font-size: 12px;
+            font-weight: normal;
+        }
+    }
+}
+.navigation-wizard {
+    list-style: none;
+    float: left;
+    margin-top: 10px;
+    @extend .p;
+
+    li {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 32px;
+        padding-right: 32px;
+        color: rgba(255, 255, 255, 0.24);
+        font-weight: 600;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            border: solid 2px rgba(255, 255, 255, 0.24);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        a {
+            color: rgba(255, 255, 255, 0.24);
+
+            &:hover,
+            &:focus {
+                cursor: default;
+                text-decoration: none;
+            }
+        }
+
+        .badge {
+            margin-left: $spacer-2;
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            display:none;
+        }
+
+        //*---------------------------------------*
+        //  Active
+        //*---------------------------------------*
+        &.active {
+            &::before {
+                background-image: url(../images/icon-pending-white.svg);
+                border: 0;
+                border-radius: 0;
+            }
+
+            a {
+                color: white !important;
+            }
+        }
+
+        //*---------------------------------------*
+        //  Item Completed
+        //*---------------------------------------*
+        &.item-completed {
+            &::before {
+                background-image: url(../images/icon-check-circle-faded.svg);
+                border: 0;
+                border-radius: 0;
+            }
+
+            a {
+                color: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    //*---------------------------------------*
+    //  Responsive
+    //*---------------------------------------*
+    @include media-breakpoint-down(lg) {
+        li {
+            padding-top: $spacer-4;
+            padding-right: 0;
+            padding-bottom: $spacer-4;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+
+            a {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+
+        li {
+            margin-right: $spacer-4;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                margin-top: 1px;
+                width: 12px;
+                height: 12px;
+                background-image: url(../images/icon-arrow-right-faded.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                transform: translateY(-50%);
+            }
+
+            &:last-child::after {
+                display: none;
+            }
+        }
+    }
+}
+/*
+   Navigation Page Screen
+
+*/
+.nav-page-screen{
+    height: 70px;
+    border-top: solid 3px #1266fa;
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        span{
+            float: left;
+            margin: $spacer-5 0 0 $spacer-7;
+            font-family: $typeface;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.33;
+            letter-spacing: 0.2px;
+            color: $grey-800;
+        }
+        svg{
+            float: right;
+            margin: $spacer-5 $spacer-7 0 0px;
+            fill:$cool-blue;
+        }
+}

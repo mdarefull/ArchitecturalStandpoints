@@ -1,0 +1,49 @@
+//*---------------------------------------*
+//  Alert
+//*---------------------------------------*
+.alert {
+    align-items: center;
+    position: relative;
+    margin: 0;
+
+    @extend .spacer-sm;
+
+    @extend .p-large;
+
+    font-weight: 600;
+    border: 0;
+    border-radius: $border-radius;
+
+    //*---------------------------------------*
+    //  Media Body
+    //*---------------------------------------*
+    .media-body {
+        p {
+            position: relative;
+            top: 1px;
+        }
+    }
+
+    //*---------------------------------------*
+    //  Alert Warning
+    //*---------------------------------------*
+    &-warning {
+        color: white;
+        background-color: $brand-orange-dark;
+    }
+
+    //*---------------------------------------*
+    //  Alert Danger
+    //*---------------------------------------*
+    &-danger {
+        color: $status-pink-dark;
+        background-color: $status-pink-light;
+    }
+
+    //*---------------------------------------*
+    //  Aside alerts
+    //*---------------------------------------*
+    aside & {
+        border-radius: 0;
+    }
+}

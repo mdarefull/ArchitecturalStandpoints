@@ -1,0 +1,118 @@
+//*---------------------------------------*
+//  Page
+//*---------------------------------------*
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $clay;
+
+    main {
+        flex: 1;
+        width: 100%;
+    }
+}
+
+//*---------------------------------------*
+//  Layout Aside
+//*---------------------------------------*
+.layout-aside {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    main, aside {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    aside {
+        background-color: $silver;
+    }
+
+    @include media-breakpoint-up(xl) {
+        flex-direction: row;
+        min-height: 100vh;
+
+        aside {
+            flex-basis: 24.5%;
+            max-width: 294px;
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Layout 3 Columns
+//*---------------------------------------*
+.layout-3-columns {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .navigation-list {
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            li {
+                width: 20%;
+
+                &.active {
+                    background-color: #6b8499;
+                }
+            }
+        }
+    }
+
+    aside {
+        background-color: $silver;
+    }
+
+    .layout-column {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    @include media-breakpoint-up(lg) {
+        flex-direction: row;
+
+        .navigation-list {
+            flex-basis: 98px;
+
+            ul {
+                flex-direction: column;
+                flex-wrap: nowrap;
+
+                li {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+
+    @include media-breakpoint-up(xl) {
+        min-height: 100vh;
+
+        .layout-column {
+            flex-direction: row;
+
+            aside {
+                max-width: 294px;
+            }
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Wrap
+//*---------------------------------------*
+.wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1200px;
+}

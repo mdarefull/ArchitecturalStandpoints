@@ -1,0 +1,59 @@
+//*---------------------------------------*
+//  Modal
+//*---------------------------------------*
+.modal {
+    position: relative;
+    background: white;
+    max-width: 620px;
+    min-height: 415px;
+    max-height: 70vh;
+    margin: 40px auto;
+    border-radius: 8px;
+    box-shadow: $box-shadow-raise;
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        max-height: 70vh;
+    }
+
+    .modal-header,
+    .modal-block,
+    .modal-footer {
+        @extend .spacer-lg;
+    }
+
+    .modal-header {
+        background-color: $cool-blue-lighter;
+        border-bottom: 0;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    .modal-title {
+        @extend .heading-2;
+    }
+
+    .modal-body {
+        flex: 1;
+        padding: 0;
+        overflow-y: scroll;
+    }
+
+    .modal-divider:not(:last-of-type) {
+        border-bottom: 1px solid $grey-100;
+    }
+
+    [aria-label="Close"] {
+        position: absolute;
+        top: 30px;
+        right: 24px;
+        cursor: pointer;
+        fill: $cool-blue-dark;
+        transition: fill 0.3s;
+
+        &:hover {
+            fill: $cool-blue-darker;
+        }
+    }
+}

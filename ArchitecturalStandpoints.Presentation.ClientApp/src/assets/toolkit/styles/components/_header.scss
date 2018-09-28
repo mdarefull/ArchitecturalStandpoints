@@ -1,0 +1,133 @@
+//*---------------------------------------*
+//  Header Branding
+//*---------------------------------------*
+.header-branding {
+    @extend .bg-brand;
+
+    @extend .p;
+
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    .nav-link{
+        font-family: Brasley !important;
+    }
+    //*---------------------------------------*
+    //  Toggler Right
+    //*---------------------------------------*
+    .navbar .navbar-toggler.navbar-toggler-right {
+        top: 15px;
+    }
+
+    //*---------------------------------------*
+    //  Navbar Nav
+    //*---------------------------------------*
+    .navbar-nav {
+        .nav-item {
+            margin-right: $spacer-6 !important;
+            padding: 0;
+            font-weight: bold;
+
+            .nav-link {
+                display: block;
+                padding: 0;
+                transition: all 0.2s ease-in-out;
+
+                &:hover {
+                    color: white;
+                }
+            }
+
+            &.active {
+                .nav-link {
+                    border-bottom: 1px solid white;
+                }
+            }
+        }
+    }
+
+    //*---------------------------------------*
+    //  Nav Tabs
+    //*---------------------------------------*
+    .nav-tabs {
+        @include media-breakpoint-down(md) {
+            .nav-item {
+                align-self: flex-start;
+
+                .nav-link {
+                    margin-right: 1rem;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+
+    //*---------------------------------------*
+    //  Dropdown Notifications
+    //*---------------------------------------*
+    .dropdown-notifications {
+        /*display: flex;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        margin: 0px !important;*/
+    }
+
+    //*---------------------------------------*
+    //  Avatar Inverse
+    //*---------------------------------------*
+    .avatar-inverse:hover,
+    .avatar-inverse[aria-expanded="true"] {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    //*---------------------------------------*
+    //  Responsive
+    //*---------------------------------------*
+    @include media-breakpoint-down(md) {
+        .navbar-nav .nav-item {
+            margin-right: 0;
+
+            .nav-link {
+                width: 100%;
+            }
+        }
+
+        .bootstrap-select.btn-group.select-clients {
+            width: 100%;
+
+            .dropdown-menu.show {
+                min-width: 100%;
+            }
+        }
+
+        .nav-components {
+            width: 100%;
+
+            .dropdown {
+                margin-top: $spacer-4;
+                width: 100%;
+
+                .dropdown-menu {
+                    width: 100%;
+                }
+            }
+
+            .dropdown-notifications {
+                top: 0;
+
+                div[aria-labelledby="dropdownNotifications"] {
+                    min-width: 100% !important;
+                }
+            }
+        }
+    }
+}
+.header-help-ic{
+    margin-left: 10px;
+    opacity: 0.5;
+}
+
+//*---------------------------------------*
+//  Bootstrap overrides
+//*---------------------------------------*
+.bg-brand h1, .header-branding h1, .bg-brand h2, .header-branding h2, .bg-brand h3, .header-branding h3, .bg-brand h4, .header-branding h4, .bg-brand h5, .header-branding h5, .bg-brand h6, .header-branding h6, .bg-brand li, .header-branding li, .bg-brand dl, .header-branding dl, .bg-brand p, .header-branding p {
+    color: initial;
+}

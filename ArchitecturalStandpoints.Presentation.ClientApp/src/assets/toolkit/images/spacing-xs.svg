@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="222" height="100" viewBox="0 0 222 100">
+  <g fill="none" fill-rule="evenodd" transform="translate(-1)">
+    <g transform="translate(123 45)">
+      <rect width="100" height="8" y="1" fill="#1074CC" opacity=".1"/>
+      <path stroke="#1074CC" d="M0 9.5L100 9.5M0 1.5L100 1.5" stroke-dasharray="3 3"/>
+    </g>
+    <rect width="8" height="100" x="1" fill="#1074CC" opacity=".1"/>
+    <path stroke="#1074CC" d="M9.5 0L9.5 100M1.5 0L1.5 100" stroke-dasharray="3 3"/>
+  </g>
+</svg>

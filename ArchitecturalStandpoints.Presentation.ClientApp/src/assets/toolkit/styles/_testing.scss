@@ -1,0 +1,93 @@
+//*---------------------------------------*
+//  Wrap
+//*---------------------------------------*
+.wrap {
+    // outline: 1px dashed $status-blue-dark;
+}
+
+//*---------------------------------------*
+//  Grid
+//*---------------------------------------*
+.row {
+    // outline: 1px dashed black;
+
+    div[class*="col-"] {
+        // outline: 1px dashed rgba(black, 0.4);
+    }
+}
+
+//*---------------------------------------*
+//  Grid Overlay
+//*---------------------------------------*
+:root {
+    --offset: $spacer-5;
+    --max_width: 1200px;
+    --columns: 6;
+    --gutter: $spacer-5;
+    --color: hsla(204, 80%, 72%, 0.15);
+    --color-text: hsla(204, 80%, 72%, 1);
+    --media-query: 'base';
+}
+
+@media (min-width: 576px) {
+    :root {
+        --color: hsla(286, 51%, 44%, 0.1);
+        --color-text: hsla(286, 51%, 44%, 1);
+        --media-query: 'small';
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --columns: 12;
+        --color: hsla(204, 80%, 72%, 0.1);
+        --color-text: hsla(204, 80%, 72%, 1);
+        --media-query: 'medium';
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --color: hsla(286, 51%, 44%, 0.1);
+        --color-text: hsla(286, 51%, 44%, 1);
+        --media-query: 'large';
+    }
+}
+
+:root {
+    --repeating-width: calc(100% / var(--columns));
+    --column-width: calc((100% / var(--columns)) - var(--gutter));
+    --background-width: calc(100% + var(--gutter));
+    --background-columns: repeating-linear-gradient(to right, var(--color), var(--color) var(--column-width), transparent var(--column-width), transparent var(--repeating-width));
+}
+
+html::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: calc(100% - (2 * var(--offset)));
+    max-width: var(--max_width);
+    min-height: 100vh;
+    content: '';
+    background-image: var(--background-columns);
+    background-size: var(--background-width) 100%;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+html::after {
+    content: var(--media-query);
+    position: fixed;
+    top: 3rem;
+    left: 1rem;
+    padding: 4px 8px;
+    z-index: 1001;
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.5;
+    background: black;
+}

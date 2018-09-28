@@ -1,0 +1,12 @@
+//*---------------------------------------*
+//  Info Row
+//*---------------------------------------*
+.info-row {
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-up(md) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

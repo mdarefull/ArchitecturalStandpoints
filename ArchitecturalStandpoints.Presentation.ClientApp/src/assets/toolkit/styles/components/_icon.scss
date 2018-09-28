@@ -1,0 +1,33 @@
+.icon {
+    display: inline-block;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.icon-arrow-left {
+    fill: #87abc9;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.icon-innetwork {
+    fill: $grey-400;
+    width: 13px;
+    height: 14px;
+}
+
+.icon-ellipsis {
+    fill: #c4d4e3;
+}
+.icon-ellipsis-small{
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.symbol-circle {
+    padding: 5px;
+    border: 1px solid $grey-100;
+    border-radius: 50%;
+}

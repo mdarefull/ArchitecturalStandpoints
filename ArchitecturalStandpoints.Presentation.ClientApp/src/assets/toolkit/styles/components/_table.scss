@@ -1,0 +1,258 @@
+//*---------------------------------------*
+//  Table
+//*---------------------------------------*
+.table {
+    thead {
+        th {
+            padding: 8px;
+            color: $grey-800;
+            font-size: 11px;
+            font-weight: bold;
+            line-height: 1.45;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            border-top: 0;
+            border-bottom: 1px solid $grey-100;
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+
+    tbody {
+        th,
+        td {
+            padding: 8px;
+            position: relative;
+            font-weight: normal;
+            border-bottom: 1px solid $grey-100;
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+
+    tfoot {
+        td {
+            padding: 8px;
+
+            &.divider {
+                padding: 8px 0;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    right: 0;
+                    height: 1px;
+                    background-color: $grey-100;
+                }
+            }
+
+            &.table-total {
+                @extend .heading-3;
+            }
+        }
+    }
+
+    //*---------------------------------------*
+    //  Table Responsive
+    //*---------------------------------------*
+    &.table-responsive {
+        display: table;
+
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
+    }
+
+    //*---------------------------------------*
+    //  Table TD No Borders
+    //*---------------------------------------*
+    &.table-td-no-borders {
+        tbody,
+        tfoot {
+            th,
+            td {
+                border-bottom: 0 !important;
+                border-top: 0 !important;
+            }
+        }
+    }
+
+    //*---------------------------------------*
+    //  Table Sm
+    //*---------------------------------------*
+    &.table-sm {
+        th,
+        td {
+            padding: 4px 8px;
+        }
+    }
+
+    //*---------------------------------------*
+    //  Table List
+    //*---------------------------------------*
+    &.table-card-list {
+        table-layout: fixed;
+        color: #414141 !important;
+        .p-small{
+            font-size: 14px;
+        }
+        td:first-child{
+            small{
+                font-size: 14px;
+            }
+        }
+        th:last-child{
+            width: 60px;
+        }
+        tbody {
+            td {
+                border-bottom: 1px solid $grey-100;
+            }
+        }
+        h5{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-height: 16px;
+            max-height: 32px;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .icon-innetwork{
+            width:20px !important;
+            height: auto !important;
+        }
+      /*  h5::after{
+            content: '';
+            background-image: url(../images/icon-innetwork2.svg);
+            width: 34px;
+            background-repeat: no-repeat;
+            height: 30px;
+            margin-left: 5px;
+            position: absolute;
+        }*/
+    }
+
+    &.editable-table{
+        span{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow:hidden;
+        }
+        &.import-account{
+            font-size: 13px !important;
+            th:first-child{
+                width: 85px;
+            }
+            td:first-child{
+                text-align: center;
+            }
+            td{
+                span{
+                    padding-left: 12px !important;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    display: block;
+                }
+            }
+        }
+        border:1px solid #F7F7F7;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+        table-layout: fixed;
+        color: #414141 !important;
+        thead{
+            background-color: #F7FBFF;
+            th:first-child{
+                border-right:2px solid #F7F7F7;
+            }
+            th{
+                &.th-ckb{
+                    display: flex;
+                    padding: 17px 0px 0px 17px !important;
+                    .spn-ckb{
+                        margin-top:5px;
+                    }
+                }
+                padding:17px 0px 17px 30px !important;
+            }
+        }
+        td:first-child{
+            border-right:2px solid #F7F7F7;
+        }   
+        tr{
+            &.editable{
+                .isEditable{
+                    input{
+                        display:block;
+                        width: 150px;
+                    }
+                    span{
+                        display:none;
+                    }
+                }
+                .action-edit{
+                    display:none;
+                }
+                .action-confirm{
+                    display:inline-flex;
+                }
+                background-color: #E6EFFE;
+            }
+            .action-confirm{
+                display:none;
+            }
+            .isEditable{
+                input{
+                    display:none;
+                }
+                span {
+                    border: none;
+                    min-height: 35px;
+                }
+            }
+        }
+        td{
+            padding:17px !important;
+            div{
+                display:inline-flex;
+                .num-rw{
+                    text-align: center;
+                    width: 45px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 1.42;
+                    letter-spacing: 0.2px;
+                    margin-top:5px;
+                }
+                a{
+                    position: absolute;
+                    right: 35px;
+                    margin-top:5px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 1.43;
+                    letter-spacing: 0.2px;
+                }
+            }
+            &.validation-err{
+                span{
+                    background-color: #faebef !important;
+                    border: solid 1px rgba(209, 67, 102, 0.2);
+                    color: #d14366;
+                }
+                input{
+                    border-left: 3px solid #d14366 !important;
+                    border: solid 1px #d14366;
+                }
+            }
+        }
+    }
+}

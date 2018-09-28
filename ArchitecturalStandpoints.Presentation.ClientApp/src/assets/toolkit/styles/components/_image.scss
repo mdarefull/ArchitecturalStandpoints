@@ -1,0 +1,23 @@
+//*---------------------------------------*
+//  Image with Text
+//*---------------------------------------*
+.image-with-text {
+    display: flex;
+    align-items: center;
+}
+
+//*---------------------------------------*
+//  Image Outdent
+//*---------------------------------------*
+.image-outdent {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    img,
+    svg {
+        position: absolute;
+        right: 100%;
+        margin-right: 12px;
+    }
+}

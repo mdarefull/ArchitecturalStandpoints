@@ -1,0 +1,99 @@
+<div class="page login-container">
+  <div class="container-fluid">
+    <div class="row align-items-center py-5">
+      <div class="col-12 col-lg-4 mb-4 text-center text-lg-left">
+        <img src="assets/toolkit/images/logo-cc-white.png" width="159" alt="Capital Confirmation logo">
+      </div>
+      <div class="col-12 col-lg-4 mb-4 text-center">
+        <div class="dropdown">
+          <a class="dropdown-toggle login-location-select" href="javascript:void(0);" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            LOCATION/LANGUAGE
+            <svg class="icon icon-caret-circle i-dropdown" width="10" height="10">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-line"></use>
+            </svg>
+          </a>
+          <div class="dropdown-menu location-options" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="javascript:void(0);">Global/English (US English)</a>
+            <a class="dropdown-item" href="javascript:void(0);">Global/French (Français)</a>
+            <a class="dropdown-item" href="javascript:void(0);">Global/German (Deutsche)</a>
+            <a class="dropdown-item" href="javascript:void(0);">Global/Spanish (Español)</a>
+            <a class="dropdown-item" href="javascript:void(0);">Global/Chinese (Simplified) (简体中文)</a>
+            <a class="dropdown-item" href="javascript:void(0);">Global/Chinese (Traditional) (繁體中文)</a>
+            <a class="dropdown-item" href="javascript:void(0);">Japan/Japanese (日本語)</a>
+            <a class="dropdown-item" href="javascript:void(0);">Global/Portuguese (Português)</a>
+            <a class="dropdown-item" href="javascript:void(0);">Arabic (coming soon)</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 mb-4 text-center text-lg-right">
+        <p class="p login-sign-up-label">
+          Don't have an account?
+          <a href="javascript:void(0);" class="ml-2 font-weight-semibold login-sign-up">
+            Sign up
+          </a>
+          <svg class="icon icon-notifications dropdown-toggle header-help-ic login-help-icon" width="20" height="20">
+            <use xlink:href="#icon-question"></use>
+          </svg>
+        </p>
+      </div>
+    </div>
+    <div class="row pt-7">
+      <div class="col-12 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+        <h1 class="text-white text-center mb-5">Log in to your Confirmation account</h1>
+        <div class="card card-xl card-radius-lg login-form-container">
+          <div class="card-block">
+            <div class="container-fluid container-fluid-sm">
+              <form class="form-group" role="form" [formGroup]="userForm" (submit)="onSubmit()">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputUsername">User ID</label>
+                      <input type="text" class="form-control user-input" id="inputUsername" placeholder="Enter User ID" formControlName="username" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label" for="inputPassword">Password</label>
+                      <input type="password" class="form-control password-input" id="inputPassword" placeholder="Enter Password" formControlName="password" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group has-danger" *ngIf="errorMessage">
+                  <div class="form-control-feedback" id="inputInvalid">
+                    <div class="media">
+                      <svg class="icon icon-error align-self-center mr-3" width="16" height="16" aria-hidden="true">
+                        <use xlink:href="#icon-error"></use>
+                      </svg>
+                      <div class="media-body">
+                        <p>
+                          {{errorMessage}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" id="" class="btn btn-primary btn-block btn-lg">
+                  Log In
+                </button>
+                <div class="text-center pt-5">
+                  <a href="javascript:void(0);" class="p primary-link" id="">
+                    Forgot User ID/Password?
+                  </a>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Copyright © 2000-2018, Capital Confirmation, Inc. | User Agreement | Privacy Policy</span>
+    <span>Capital Confirmation’s business processes are covered by US Patent Nos. 7383232, 7831488, 8442880, 8484105, 8510185, 8543475. Other patents are pending.</span>
+  </div>
+</div>
+

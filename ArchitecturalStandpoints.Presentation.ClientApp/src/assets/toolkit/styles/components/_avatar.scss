@@ -1,0 +1,175 @@
+//*---------------------------------------*
+//  Avatar
+//*---------------------------------------*
+.avatar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+    min-width: $spacer-6;
+    min-height: $spacer-6;
+    overflow: hidden;
+    color:$grey-100;
+    line-height: 1;
+    background-color: $grey-50;
+    border-radius: 50%;
+
+    &[data-toggle="dropdown"] {
+        cursor: pointer;
+    }
+
+    &-inverse {
+        color: #8baecc;
+        background-color: $cool-blue-light;
+        border: solid 1px rgba(139, 174, 204, 0.2);
+    }
+
+    &-inverse-lg {
+        width: 86px;
+        height: 86px;
+        border: solid 1px rgba(139, 174, 204, 0.2);
+        color: #8baecc;
+        background-color: $cool-blue-light;
+    }
+
+    &-lg {
+        width: 74px;
+        height: 74px;
+        font-size: 30px;
+        border: solid 1px $grey-100;
+        border-radius: $border-radius-lg;
+
+        span {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            font-size: 70px;
+            line-height: 0.89;
+        }
+    }
+
+    &-xl {
+        @extend .avatar-lg;
+
+        width: 88px;
+        height: 88px;
+
+        span {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            font-size: 90px;
+            line-height: 0.89;
+        }
+    }
+
+    &.bg-avatar-1 {
+        color: #77b0df;
+        background-color: #b8d5ee;
+    }
+
+    &.bg-avatar-2 {
+        color: #f6c49a;
+        background-color: #fae0ca;
+    }
+
+    &.bg-avatar-3 {
+        color: #9fd5f6;
+        background-color: #cde9fa;
+    }
+
+    &.bg-avatar-4 {
+        color: #b1d9aa;
+        background-color: #d7ead3;
+    }
+    &-add {
+        width: 74px;
+        height: 74px;
+        border-radius: 8px;
+        border: dashed 1px #8baecc;
+        background-color: transparent;
+        cursor:pointer; 
+        svg{
+            color: #88b2fc;
+        }
+        &:hover,&:active{
+            border: dashed 1px #457299;
+            svg{
+                color: $brand-cc-blue-dark; 
+            }
+        }
+    }
+}
+
+
+/* Particular clases for logo in dashboard page  */
+
+.company-logo-container {
+    display:flex;
+    flex-direction: column;
+
+    .avatar.bg-avatar-3 {
+        color: #414141;
+        background-color: #FFF;
+    }
+    .company-logo {
+        position: absolute;
+    }
+    
+    .company-avatar {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .company-avatar-large {
+        height: 156px;
+        width: 156px;
+        span{
+            font-size: 156px;
+        }
+    }
+    .company-text {
+        text-align: center;
+    }
+    p{
+        color: #9F9F9F;
+    }
+    @include media-breakpoint-down(xl) {
+        .company-avatar-large {
+            height: 120px;
+            width: 120px;
+            span{
+                font-size: 120px;
+            }
+        }
+    }
+    @include media-breakpoint-down(md) {
+        float:left;
+        .company-logo {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }    
+        .company-avatar-small {
+            height: 74px;
+            width: 74px;
+            span{
+                font-size: 74px;
+            }
+        }
+        p{
+            padding-top: 8px !important;
+            display: block !important;
+            font-size: 10px;
+        }
+    }
+    @include media-breakpoint-down(sm){
+        float:inherit;
+        align-items: center;
+        margin-bottom: 10px;
+        .company-text {
+            text-align: initial;
+        }
+    }
+}
+  

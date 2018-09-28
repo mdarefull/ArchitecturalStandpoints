@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="222" height="100" viewBox="0 0 222 100">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#1074CC" d="M122 20h100v60H122z" opacity=".1"/>
+        <path stroke="#1074CC" stroke-dasharray="3,3" d="M122 80.5h100M122 20.5h100"/>
+        <g>
+            <path fill="#1074CC" d="M0 0h60v100H0z" opacity=".1"/>
+            <path stroke="#1074CC" stroke-dasharray="3,3" d="M60.5 0v100M.5 0v100"/>
+        </g>
+    </g>
+</svg>

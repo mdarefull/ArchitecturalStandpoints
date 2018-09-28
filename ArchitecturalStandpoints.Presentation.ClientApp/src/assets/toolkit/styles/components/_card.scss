@@ -1,0 +1,693 @@
+//*---------------------------------------*
+//  Card
+//*---------------------------------------*
+.card {
+    margin-bottom: $spacer-4;
+    color: $grey-600;
+    box-shadow: $box-shadow-raise;
+    border-radius: $border-radius;
+    transition: all 250ms ease;
+
+    &.card-hover:hover,
+    &.card-hover:focus,
+    &.card-hover:active,
+    &.card-hover.active {
+        border: 1px solid #58B6F5;
+        box-shadow: $box-shadow-hover;
+        cursor:pointer;
+    }
+
+    &.card-radius-lg {
+        border-radius: $border-radius-lg;
+    }
+    //*---------------------------------------*
+    //  Card Block
+    //*---------------------------------------*
+    .card-block {
+        @extend .spacer-md;
+
+        //*---------------------------------------*
+        //  Container Fluid
+        //  No extra padding is needed when inside a .card-block
+        //*---------------------------------------*
+        .container-fluid {
+            @extend .container-fluid-sm;
+
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        .stat-group{
+            color:#9F9F9F;
+        }
+        .card-subtitle{
+            color: #9F9F9F !important;
+        }
+        &.wt-ckb{
+            .form-check{
+                float:left;
+                height: 90px;
+                label{
+                    margin-top:35px;
+                }
+            }
+        }
+        &.with-error-state{
+            border-left:solid 3px #d14366;
+            .alert{
+                .media-body{
+                    font-weight: normal;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    &.card-intitution{
+        &.active{
+            border-left: solid 3px $status-pink-dark;
+            .alert-danger{
+                display:block;
+            }
+            .btn-row{
+                display:block;
+            }
+        }
+        .fdic-number {
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 1.42;
+            letter-spacing: 0.2px;
+            color: #9F9F9F;
+          }
+          &:hover,&.hover{
+              cursor:pointer;
+          }
+          .alert-danger{
+              font-weight: normal;
+              display:none;
+          }
+          .btn-row{
+              display:none;
+          }
+    }
+    .card-title {
+        margin-bottom: $spacer-2;
+        color: $grey-800;
+    }
+
+    .card-subtitle {
+        @extend .p-xs;
+    }
+
+    h6 {
+        margin-bottom: $spacer-3;
+    }
+
+    .stat-group {
+        color: $grey-600;
+    }
+
+    //*---------------------------------------*
+    //  Card Subtle
+    //*---------------------------------------*
+    &.card-subtle {
+        box-shadow: $box-shadow-subtle;
+    }
+
+    //*---------------------------------------*
+    //  Card XL
+    //*---------------------------------------*
+    &.card-xl .card-block {
+        padding: $spacer-6 $spacer-5;
+
+        @include media-breakpoint-up(lg) {
+            padding: $spacer-6 $spacer-7;
+        }
+    }
+
+    //*---------------------------------------*
+    //  Card LG
+    //*---------------------------------------*
+    &.card-lg .card-block {
+        padding: $spacer-5;
+
+        @include media-breakpoint-up(lg) {
+            padding: $spacer-5 $spacer-6;
+        }
+    }
+
+    //*---------------------------------------*
+    //  Card SM
+    //*---------------------------------------*
+    &.card-sm .card-block {
+        @extend .spacer-sm;
+    }
+
+    //*---------------------------------------*
+    //  Dropdown
+    //*---------------------------------------*
+    .card-dropdown {
+        display: flex;
+        justify-content: flex-end;
+
+        .dropdown-toggle {
+            display: flex;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    //*---------------------------------------*
+    //  Collapse
+    //  Forms inside collapsible area have a blue background
+    //*---------------------------------------*
+    .collapse,
+    .collapsing {
+        form {
+            padding: $spacer-5 $spacer-6;
+            background-color: $cool-blue-lighter;
+            border: 1px solid $cool-blue-light;
+
+            @include media-breakpoint-down(md) {
+                padding: $spacer-4;
+            }
+        }
+    }
+
+    h4, h5, p {
+        min-width: 0;
+        word-wrap: break-word;
+    }
+
+    .media-body {
+        min-width: 0px;
+    }
+
+    .progress {
+        height: 3px;
+        line-height: 1;
+        border-radius: 0;
+    }
+    .card-title{
+        font-weight: 500 !important;
+    }
+    //*---------------------------------------*
+    //  Validation
+    //*---------------------------------------*
+    &.card-has-danger {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #d14366;
+            border-radius: $border-radius;
+        }
+    }
+
+    /*  Card Editable */
+    &.card-edit{
+        .card-block{
+            padding:25px 25px;
+        }
+        .validation-info{
+            small{
+                display:block;
+                font-size:11px;
+                color:#D2D2D2;
+                line-height: 1.45;
+                letter-spacing: 0.6px;
+                margin-bottom:2px;
+                svg{
+                    fill:#77BF69;
+                }
+            }
+            small:nth-child(4),small:nth-child(5){
+                margin-left: 12px;
+            }
+            .alert-danger{
+                p{
+                    font-weight: normal;
+                    font-size: 13px;
+                }
+            }
+        }
+        .form-control-label{
+            color:#9F9F9F !important;
+            letter-spacing: 1.2px;
+        }
+        .add-logo-content{
+            margin-bottom: 10px;
+            span{
+                font-size: 11px;
+                font-weight: bold;
+                line-height: 1.45;
+                letter-spacing: 0.6px;
+                color: #9F9F9F;
+            }
+            svg{
+                margin-top: 5px;
+                fill:#88b2fc;
+            }
+        }
+        .avatar-add{
+            background: #D2D2D2;
+            border: none;
+            svg{
+                fill:white;
+            }
+            &.hover,&:hover{
+                background: #D2D2D2;
+                border: none;
+                svg{
+                    fill:white;
+                }
+            }
+        }
+        .form-group{
+            .link-secondary{
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+        .rw-pb-0{
+            .form-group{
+                margin-bottom:0px;
+            }
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Card Aside
+//*---------------------------------------*
+.card-aside {
+    aside {
+        color: $grey-600;
+        background-color: $grey-50;
+        display:none;
+        @extend .p-small;
+
+        h1, h2, h3, h4, h5, h6 {
+            color: $grey-600;
+        }
+
+        time {
+            display: block;
+            margin-bottom: $spacer-1;
+            color: $grey-400;
+
+            @extend .p-xs;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        flex-direction: row;
+        justify-content: space-between;
+        .card-block:first-child {
+            flex-basis: 70%;
+        }
+
+        aside {
+            flex-basis: 30%;
+            display:block;
+        }
+    }
+}
+
+//*---------------------------------------*
+//  Card Client
+//*---------------------------------------*
+.card-client {
+    .card-title{
+        font-weight: 500 !important;
+    }
+    .sub-title{
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 1.42;
+        letter-spacing: 0.8px;
+    }
+    .card-subtitle{
+        color: #9F9F9F !important;
+        letter-spacing: 0.8px;
+        margin-top:5px;
+    }
+    .card-dropdown{
+        height: 12px;
+    }
+    .action-content{
+        width: 100%;
+        margin-top: 20px;
+        &.notification{
+            align-items: flex-end;
+            div:first-child{
+                align-items: center;
+            }
+            span{
+                color: #9F9F9F;
+                letter-spacing: 0.8px;
+            }
+        }
+    }
+    &.manage{
+        border-left: 3px solid #F39A4D !important;
+        .media{
+            .form-check{
+                margin-top:25px;
+            }
+        }
+        .action-content.notification{
+            justify-content: flex-start !important;
+            margin-top:10px;
+            span.request{
+                font-size: 12px;
+                font-weight: normal;
+                letter-spacing: 0.8px;
+                color: $cool-blue-dark;
+            }
+            .icon-caret-circle{
+                margin-left:5px;
+            }
+            .notifaction-container{
+                margin-right:35px;
+            }
+        }
+        .badge-content{
+            flex-direction: column !important;
+            margin-top: 10px;
+        }
+        .icon-notifications-filled{
+            margin-right: 5px;
+        }
+        @include media-breakpoint-down(xs){
+            .notification{
+                flex-direction: column !important;
+                align-items: flex-start;
+            }
+        }
+        @include media-breakpoint-up(lg) {
+            .action-content.notification{
+                justify-content: flex-end !important;
+            }
+            .badge-content{
+                flex-direction: row !important;
+            }
+        }
+    }
+    /* Card-Bulk button */
+    &.bulk{
+        border:1px solid rgba(0, 0, 0, 0.125);
+        .media{
+            .form-check{
+                margin-top:25px;
+            }
+        }
+        .badge-content p{
+            align-items: center;
+            line-height: initial;
+        }
+        .notification{
+            span.request{
+                font-size: 12px;
+                font-weight: normal;
+                /*line-height: 1.42;*/
+                letter-spacing: 0.8px;
+                color: $cool-blue-dark;
+                margin-right: 35px;
+            }
+        }
+        .icon-notifications-filled{
+            margin-right: 5px;
+        }
+        @include media-breakpoint-down(xs){
+            .badge-content{
+                flex-direction: column !important;
+                p {
+                    margin-top:10px;
+                }
+                span {
+                    margin-top:10px;
+                }
+            }
+        }
+    }
+    /* Fin Card-bulk button */
+    &:hover,&.hover{
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+        border: solid 1px $cool-blue;
+        cursor:pointer;
+    }
+    @include media-breakpoint-up(lg) {
+        flex-direction: row;
+        justify-content: space-between;
+        .card-block:first-child {
+            flex-basis: 70%;
+        }
+
+        .action-content{
+            width: auto !important;
+            margin-top: 0px !important;
+        }
+        aside {
+            flex-basis: 30%;
+            display:block;
+        }
+    }
+}
+
+.user-card{
+    @extend .card-client;
+    @extend .bulk;
+
+    &.account{
+        .card-title{
+            font-size: 15px;
+        }
+        .media-body{
+            p{
+                margin-bottom: 5px;
+            }
+            div:nth-child(2){
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+
+    &.office{
+        .card-title{
+            margin-bottom: 10px !important;
+        }
+        .media-body{
+            div:first-child{
+                margin-bottom: 10px;
+            }
+        }
+        .btn-actions{
+            align-items: center;
+            .group-btn{
+                margin-left:5px;
+                min-height: 35px;
+            }
+        }
+        &.w-dropdown{
+            flex-direction: row;
+        }
+        @include media-breakpoint-down(lg) {
+            .btn-actions{
+                .group-btn{
+                    margin:5px;
+                    width: 100%;
+                }
+            }
+            .small-user-card{
+                flex-direction: column;
+            }
+            
+        }
+        @include media-breakpoint-down(xs) {
+            .btn-actions{
+                flex-direction: column !important;
+                margin:5px;
+            }
+            &.w-dropdown{
+                flex-direction: column;
+            }
+        }
+    }
+
+
+    &.completed-confirmation{
+        @extend .office;
+        border-left: solid 3px #d17829;
+        .state-confirmations{
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.42;
+            letter-spacing: 0.2px;
+            color: #d17829;
+        }
+    }
+    &.card-processing{
+        @extend .office;
+        .btn-actions{
+            span{
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 1.43;
+                letter-spacing: 0.2px;
+                color: #0b42a2;                  
+            }
+        }
+        .state-label{
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.42;
+            letter-spacing: 0.2px;
+            color: #9F9F9F !important;
+            font-weight: normal !important;
+            svg.ic-queued{
+                fill:#88B2FC;
+            }
+            svg.ic-ready{
+                fill:#77BF69;
+            }
+        }
+        @include media-breakpoint-down(lg){
+            .btn-actions.w-span{
+               margin-bottom: 10px;
+            }
+        }
+    }
+}
+.small-user-card{
+    @extend .user-card;
+    .card-block{
+        flex-basis: unset !important;
+    }
+    .card-block{
+        padding: 10px 16px;
+    }
+    .card-title{
+        margin-bottom:4px;
+        font-size:15px;
+    }
+    .form-check{
+        margin-top: 4px !important;
+    }
+    .custom-radio{
+        margin-top: 5px;
+    }
+    .avatar{
+        margin-right: 15px;
+    }
+    .btn-actions{
+        align-items: center;
+        .group-btn{
+            margin-left:5px;
+            min-height: 35px;
+        }
+    }
+    .sub-grey{
+        color:$grey-200;
+        font-size: 12px;
+        letter-spacing: 0.8px;
+    }
+    &.w-dropdown{
+        flex-direction: row;
+    }
+    &.authorization,&.received,&.denied{
+        .card-block{
+            padding: 25px 24px;
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        &.authorization{
+            flex-direction: column !important;
+        }   
+        .btn-actions{
+            &.authorization{
+                margin-bottom:1rem;
+                margin-left:1rem;
+                .group-btn{
+                    width: 100%;
+                }
+            }   
+        }
+    }
+    @include media-breakpoint-up(sm) {
+        &.authorization{
+            flex-direction: row !important;
+        }
+        .btn-actions{
+            &.authorization{
+                margin-bottom:0px;
+                .group-btn{
+                    margin:0px;
+                    width: auto;
+                }
+            }   
+        }
+    }
+    @include media-breakpoint-down(lg) {
+        .btn-actions{
+            margin-left:1rem;
+            margin-bottom:1rem;
+            .group-btn{
+                width: 100%;
+            }
+        }
+        .small-user-card{
+            flex-direction: column;
+        }
+    }
+    @include media-breakpoint-down(xs) {
+        .btn-actions{
+            flex-direction: column !important;
+            .group-btn{
+                margin-bottom:10px;
+            }
+        }
+        &.w-dropdown{
+            flex-direction: column;
+        }
+    }
+}
+.card-office{
+    .p-title{
+        margin-bottom:16px !important;
+    }
+    .card-block{
+        padding: 22px 30px !important;
+    }
+    span{
+        font-weight: normal;
+        font-size: 15px;
+        letter-spacing: 0.8px;
+    }
+    h5{
+        font-size: 18px;
+        font-weight: normal;
+    }
+    .office-field{
+        color:#888888; 
+    }
+    .sub-field{
+        color:#9F9F9F;
+    }
+
+    @include media-breakpoint-down(sm){
+        .row{
+            display:block;
+            div{
+                max-width: 100%;
+                margin-bottom:5px;
+            }
+        }
+    }
+}
