@@ -1,4 +1,5 @@
 using BoilerPlate.EntityFrameworkCore;
+using BoilerPlate.Tasks;
 
 namespace BoilerPlate.Tests.TestDatas
 {
@@ -6,14 +7,19 @@ namespace BoilerPlate.Tests.TestDatas
     {
         private readonly BoilerPlateDbContext _context;
 
-        public TestDataBuilder(BoilerPlateDbContext context)
-        {
-            _context = context;
-        }
+        public TestDataBuilder(BoilerPlateDbContext context) => _context = context;
 
-        public void Build()
-        {
-            //create test data here...
-        }
+        public void Build() => _context.Tasks.AddRange(
+            new Task
+            {
+                Title = "Follow the white rabbit",
+                Description = "Follow the white rabbit in order to know the reality.",
+            },
+            new Task
+            {
+                Title = "Clean your room",
+                State = TaskState.Completed,
+            }
+        );
     }
 }
