@@ -1,5 +1,4 @@
-﻿using ArchitecturalStandpoints.Core;
-using ArchitecturalStandpoints.Tests;
+﻿using ArchitecturalStandpoints.Tests;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -9,15 +8,14 @@ namespace ArchitecturalStandpoints.Api.Tests
     [ApiController]
     public sealed class TestController : ControllerBase
     {
-        [HttpGet]
-        public async Task<string> SayHello(string name)
-        {
-            var serviceResolver = new InMemoryServiceOperationResolver();
-            var service = new DummyServiceProxy(serviceResolver);
-            var greetInpu = new GreetInput { ToWho = name, };
+        public IDummyService DummyService { get; }
+        public TestController(IDummyService dummyService) => DummyService = dummyService;
 
-            var greetOutput = await service.Greet(greetInpu);
-            return greetOutput.Message;
+        [HttpGet]
+        public async Task<ActionResult<string>> SayHello(string name)
+        {
+            var greetResult = await DummyService.GreetAsync(toWho: name);
+            return greetResult.Message;
         }
     }
 }

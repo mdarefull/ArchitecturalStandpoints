@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NJsonSchema;
+using NSwag.AspNetCore;
 
 namespace ArchitecturalStandpoints
 {
@@ -12,7 +14,11 @@ namespace ArchitecturalStandpoints
 
         public IConfiguration Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services) => services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddSwagger();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -21,7 +27,12 @@ namespace ArchitecturalStandpoints
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app
+            .UseSwaggerUi3WithApiExplorer(settings =>
+            {
+                settings.GeneratorSettings.DefaultPropertyNameHandling = PropertyNameHandling.CamelCase;
+            })
+            .UseMvc();
         }
     }
 }

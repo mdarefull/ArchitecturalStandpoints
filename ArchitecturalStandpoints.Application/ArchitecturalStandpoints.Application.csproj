@@ -5,17 +5,21 @@
     <RootNamespace>ArchitecturalStandpoints</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\repos\ArchitecturalStandpoints\ArchitecturalStandpoints.Application\ArchitecturalStandpoints.Application.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.4" />
+    <PackageReference Include="NSwag.AspNetCore" Version="11.20.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArchitecturalStandpoints.Application.Abstracts\ArchitecturalStandpoints.Application.Abstracts.csproj" />
     <ProjectReference Include="..\ArchitecturalStandpoints.Application.Root\ArchitecturalStandpoints.Application.Root.csproj" />
   </ItemGroup>
 

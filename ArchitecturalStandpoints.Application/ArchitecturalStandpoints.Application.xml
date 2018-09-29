@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ArchitecturalStandpoints.Application</name>
+    </assembly>
+    <members>
+        <member name="T:ArchitecturalStandpoints.Tests.DummyServiceController">
+            <summary>
+            Dummy service for testing purposes.
+            </summary>
+        </member>
+        <member name="M:ArchitecturalStandpoints.Tests.DummyServiceController.GreetAsync(System.String)">
+            <summary>
+            Simple operation that greets someone.
+            </summary>
+            <param name="toWho">Name of the person to greet.</param>
+            <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
+        </member>
+        <member name="T:ArchitecturalStandpoints.Tests.GreetResult">
+            <summary>
+            Represents the result for the operation: <see cref="M:ArchitecturalStandpoints.Tests.DummyServiceController.GreetAsync(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:ArchitecturalStandpoints.Tests.GreetResult.ResultType">
+            <summary>
+            Indicates the type of the result.
+            </summary>
+        </member>
+        <member name="P:ArchitecturalStandpoints.Tests.GreetResult.Message">
+            <summary>
+            If <see cref="T:ArchitecturalStandpoints.Tests.GreetResults"/> is <see cref="F:ArchitecturalStandpoints.Tests.GreetResults.Success"/> then contains the 
+            returned message from the operation. <code>null</code> otherwise.
+            </summary>
+        </member>
+        <member name="T:ArchitecturalStandpoints.Tests.GreetResults">
+            <summary>
+            Represents the set of possible results for the operation <see cref="M:ArchitecturalStandpoints.Tests.DummyServiceController.GreetAsync(System.String)"/>
+            </summary>
+        </member>
+        <member name="F:ArchitecturalStandpoints.Tests.GreetResults.Success">
+            <summary>
+            Indicates that the operation has been sucesfully executed.
+            </summary>
+        </member>
+        <member name="F:ArchitecturalStandpoints.Tests.GreetResults.ErrorGeneric">
+            <summary>
+            Indicates that the operation has failed unexpectedly.
+            </summary>
+        </member>
+    </members>
+</doc>
