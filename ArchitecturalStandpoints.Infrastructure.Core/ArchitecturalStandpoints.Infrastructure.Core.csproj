@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>ArchitecturalStandpoints.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArchitecturalStandpoints.Application.Abstracts\ArchitecturalStandpoints.Application.Abstracts.csproj" />
+    <ProjectReference Include="..\ArchitecturalStandpoints.Infrastructure.Core.Abstracts\ArchitecturalStandpoints.Infrastructure.Core.Abstracts.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -11,13 +11,103 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{353FC022-681E-4C30-A724-6702E4FF78EF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{CC3D2052-2EAC-4BCD-906E-A71AE208DD42}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{CC3D2052-2EAC-4BCD-906E-A71AE208DD42}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Crosscutting", "Crosscutting", "{612D32CD-9017-4FE7-836D-0B36EB30C444}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Business", "3 - Business", "{9F7173B1-8639-4E21-A46A-3D97299618C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{6156F164-1E6D-461D-9350-25CBA885DE05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturalStandpoints.Presentation.Api", "ArchitecturalStandpoints.Presentation.Api\ArchitecturalStandpoints.Presentation.Api.csproj", "{5BF34046-046C-49DE-8E40-D19E3DE2387A}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ArchitecturalStandpoints.Presentation.ClientApp", "ArchitecturalStandpoints.Presentation.ClientApp\", "{6A581675-2034-4A65-B9CA-EBDC59351595}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_9974"
+		Debug.AspNetCompiler.PhysicalPath = "ArchitecturalStandpoints.Presentation.ClientApp\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9974\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_9974"
+		Release.AspNetCompiler.PhysicalPath = "ArchitecturalStandpoints.Presentation.ClientApp\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9974\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "9974"
+		SlnRelativePath = "ArchitecturalStandpoints.Presentation.ClientApp\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Application.Abstracts", "ArchitecturalStandpoints.Application.Abstracts\ArchitecturalStandpoints.Application.Abstracts.csproj", "{2529DE2A-1405-407F-81B0-E20FABFC29FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Application.Root", "ArchitecturalStandpoints.Application.Root\ArchitecturalStandpoints.Application.Root.csproj", "{16DA91D9-E1CC-43CF-A72C-D8776CCB294C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Application", "ArchitecturalStandpoints.Application\ArchitecturalStandpoints.Application.csproj", "{5EF583D9-4A23-44A9-BEF9-ED37C285391D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Infrastructure.Core.Abstracts", "ArchitecturalStandpoints.Infrastructure.Core.Abstracts\ArchitecturalStandpoints.Infrastructure.Core.Abstracts.csproj", "{C5E77A24-E186-46E6-8592-253CDDF46A5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Infrastructure.Core", "ArchitecturalStandpoints.Infrastructure.Core\ArchitecturalStandpoints.Infrastructure.Core.csproj", "{82907C83-08CD-4137-9B74-C0ECB075860A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Presentation.Api.Root", "ArchitecturalStandpoints.Presentation.Api.Root\ArchitecturalStandpoints.Presentation.Api.Root.csproj", "{972F0195-2A57-4680-9C9B-B9C554BF5F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Presentation.Api.Proxies", "ArchitecturalStandpoints.Presentation.Api.Proxies\ArchitecturalStandpoints.Presentation.Api.Proxies.csproj", "{58F6E352-8A5F-40D0-A6CC-91D09C0043A7}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BF34046-046C-49DE-8E40-D19E3DE2387A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF34046-046C-49DE-8E40-D19E3DE2387A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF34046-046C-49DE-8E40-D19E3DE2387A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF34046-046C-49DE-8E40-D19E3DE2387A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A581675-2034-4A65-B9CA-EBDC59351595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A581675-2034-4A65-B9CA-EBDC59351595}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2529DE2A-1405-407F-81B0-E20FABFC29FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2529DE2A-1405-407F-81B0-E20FABFC29FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2529DE2A-1405-407F-81B0-E20FABFC29FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2529DE2A-1405-407F-81B0-E20FABFC29FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16DA91D9-E1CC-43CF-A72C-D8776CCB294C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DA91D9-E1CC-43CF-A72C-D8776CCB294C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16DA91D9-E1CC-43CF-A72C-D8776CCB294C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16DA91D9-E1CC-43CF-A72C-D8776CCB294C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EF583D9-4A23-44A9-BEF9-ED37C285391D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EF583D9-4A23-44A9-BEF9-ED37C285391D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EF583D9-4A23-44A9-BEF9-ED37C285391D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EF583D9-4A23-44A9-BEF9-ED37C285391D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5E77A24-E186-46E6-8592-253CDDF46A5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E77A24-E186-46E6-8592-253CDDF46A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E77A24-E186-46E6-8592-253CDDF46A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5E77A24-E186-46E6-8592-253CDDF46A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82907C83-08CD-4137-9B74-C0ECB075860A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82907C83-08CD-4137-9B74-C0ECB075860A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82907C83-08CD-4137-9B74-C0ECB075860A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82907C83-08CD-4137-9B74-C0ECB075860A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972F0195-2A57-4680-9C9B-B9C554BF5F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972F0195-2A57-4680-9C9B-B9C554BF5F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972F0195-2A57-4680-9C9B-B9C554BF5F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972F0195-2A57-4680-9C9B-B9C554BF5F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F6E352-8A5F-40D0-A6CC-91D09C0043A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F6E352-8A5F-40D0-A6CC-91D09C0043A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F6E352-8A5F-40D0-A6CC-91D09C0043A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F6E352-8A5F-40D0-A6CC-91D09C0043A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5BF34046-046C-49DE-8E40-D19E3DE2387A} = {353FC022-681E-4C30-A724-6702E4FF78EF}
+		{6A581675-2034-4A65-B9CA-EBDC59351595} = {353FC022-681E-4C30-A724-6702E4FF78EF}
+		{2529DE2A-1405-407F-81B0-E20FABFC29FB} = {CC3D2052-2EAC-4BCD-906E-A71AE208DD42}
+		{16DA91D9-E1CC-43CF-A72C-D8776CCB294C} = {CC3D2052-2EAC-4BCD-906E-A71AE208DD42}
+		{5EF583D9-4A23-44A9-BEF9-ED37C285391D} = {CC3D2052-2EAC-4BCD-906E-A71AE208DD42}
+		{C5E77A24-E186-46E6-8592-253CDDF46A5F} = {6156F164-1E6D-461D-9350-25CBA885DE05}
+		{82907C83-08CD-4137-9B74-C0ECB075860A} = {6156F164-1E6D-461D-9350-25CBA885DE05}
+		{972F0195-2A57-4680-9C9B-B9C554BF5F1F} = {353FC022-681E-4C30-A724-6702E4FF78EF}
+		{58F6E352-8A5F-40D0-A6CC-91D09C0043A7} = {353FC022-681E-4C30-A724-6702E4FF78EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C5CA61-5C3B-4229-831B-A6CD9F0DA1BC}

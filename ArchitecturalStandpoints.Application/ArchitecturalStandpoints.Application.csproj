@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>ArchitecturalStandpoints</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArchitecturalStandpoints.Application.Abstracts\ArchitecturalStandpoints.Application.Abstracts.csproj" />
+    <ProjectReference Include="..\ArchitecturalStandpoints.Application.Root\ArchitecturalStandpoints.Application.Root.csproj" />
+  </ItemGroup>
+
+</Project>

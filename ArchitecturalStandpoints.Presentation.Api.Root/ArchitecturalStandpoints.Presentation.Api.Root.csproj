@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>ArchitecturalStandpoints.Api</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArchitecturalStandpoints.Application.Abstracts\ArchitecturalStandpoints.Application.Abstracts.csproj" />
+    <ProjectReference Include="..\ArchitecturalStandpoints.Infrastructure.Core.Abstracts\ArchitecturalStandpoints.Infrastructure.Core.Abstracts.csproj" />
+    <ProjectReference Include="..\ArchitecturalStandpoints.Infrastructure.Core\ArchitecturalStandpoints.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\ArchitecturalStandpoints.Presentation.Api.Proxies\ArchitecturalStandpoints.Presentation.Api.Proxies.csproj" />
+  </ItemGroup>
+
+</Project>
