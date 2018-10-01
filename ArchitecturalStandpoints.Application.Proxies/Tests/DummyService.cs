@@ -15,14 +15,21 @@ namespace ArchitecturalStandpoints.Tests
         /// <param name="toWho">Name of the person to greet.</param>
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BasicOperationResultOfString> GreetAsync(string toWho);
+        System.Threading.Tasks.Task<OperationResultOfString> GreetAsync(string toWho);
 
         /// <summary>Simple operation that greets someone.</summary>
         /// <param name="toWho">Name of the person to greet.</param>
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BasicOperationResultOfString> GreetAsync(string toWho, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<OperationResultOfString> GreetAsync(string toWho, System.Threading.CancellationToken cancellationToken);
+
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<OperationResultOfGetSalesByCategoryOutput> GetSalesByCategoryAsync(string categoryName, int? year);
+
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<OperationResultOfGetSalesByCategoryOutput> GetSalesByCategoryAsync(string categoryName, int? year, System.Threading.CancellationToken cancellationToken);
 
     }
 
@@ -61,7 +68,7 @@ namespace ArchitecturalStandpoints.Tests
         /// <param name="toWho">Name of the person to greet.</param>
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<BasicOperationResultOfString> GreetAsync(string toWho)
+        public System.Threading.Tasks.Task<OperationResultOfString> GreetAsync(string toWho)
         {
             return GreetAsync(toWho, System.Threading.CancellationToken.None);
         }
@@ -71,7 +78,7 @@ namespace ArchitecturalStandpoints.Tests
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BasicOperationResultOfString> GreetAsync(string toWho, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<OperationResultOfString> GreetAsync(string toWho, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/DummyService/GreetAsync?");
@@ -110,10 +117,10 @@ namespace ArchitecturalStandpoints.Tests
                         if (status_ == "200")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            var result_ = default(BasicOperationResultOfString);
+                            var result_ = default(OperationResultOfString);
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BasicOperationResultOfString>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResultOfString>(responseData_, _settings.Value);
                                 return result_;
                             }
                             catch (System.Exception exception_)
@@ -128,7 +135,90 @@ namespace ArchitecturalStandpoints.Tests
                             throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
 
-                        return default(BasicOperationResultOfString);
+                        return default(OperationResultOfString);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<OperationResultOfGetSalesByCategoryOutput> GetSalesByCategoryAsync(string categoryName, int? year)
+        {
+            return GetSalesByCategoryAsync(categoryName, year, System.Threading.CancellationToken.None);
+        }
+
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async System.Threading.Tasks.Task<OperationResultOfGetSalesByCategoryOutput> GetSalesByCategoryAsync(string categoryName, int? year, System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/DummyService/GetSalesByCategoryAsync?");
+            if (categoryName != null)
+            {
+                urlBuilder_.Append("categoryName=").Append(System.Uri.EscapeDataString(ConvertToString(categoryName, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (year != null)
+            {
+                urlBuilder_.Append("year=").Append(System.Uri.EscapeDataString(ConvertToString(year, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            var result_ = default(OperationResultOfGetSalesByCategoryOutput);
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResultOfGetSalesByCategoryOutput>(responseData_, _settings.Value);
+                                return result_;
+                            }
+                            catch (System.Exception exception_)
+                            {
+                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                            }
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+
+                        return default(OperationResultOfGetSalesByCategoryOutput);
                     }
                     finally
                     {
@@ -178,7 +268,7 @@ namespace ArchitecturalStandpoints.Tests
 
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OperationResultOfOperationResults : System.ComponentModel.INotifyPropertyChanged
+    public partial class OperationResult : System.ComponentModel.INotifyPropertyChanged
     {
         private OperationResults _type;
 
@@ -201,9 +291,9 @@ namespace ArchitecturalStandpoints.Tests
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
-        public static OperationResultOfOperationResults FromJson(string data)
+        public static OperationResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResultOfOperationResults>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResult>(data);
         }
 
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -218,7 +308,7 @@ namespace ArchitecturalStandpoints.Tests
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OperationResultOfOperationResultsAndString : OperationResultOfOperationResults, System.ComponentModel.INotifyPropertyChanged
+    public partial class OperationResultOfString : OperationResult, System.ComponentModel.INotifyPropertyChanged
     {
         private string _result;
 
@@ -241,34 +331,9 @@ namespace ArchitecturalStandpoints.Tests
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
-        public static OperationResultOfOperationResultsAndString FromJson(string data)
+        public static OperationResultOfString FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResultOfOperationResultsAndString>(data);
-        }
-
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null)
-                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BasicOperationResultOfString : OperationResultOfOperationResultsAndString, System.ComponentModel.INotifyPropertyChanged
-    {
-
-        public string ToJson()
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-
-        public static BasicOperationResultOfString FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicOperationResultOfString>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResultOfString>(data);
         }
 
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -287,7 +352,144 @@ namespace ArchitecturalStandpoints.Tests
     {
         Success = 0,
 
-        UnexpectedError = 1,
+        Other = 100,
+
+        UnexpectedError = 101,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OperationResultOfGetSalesByCategoryOutput : OperationResult, System.ComponentModel.INotifyPropertyChanged
+    {
+        private GetSalesByCategoryOutput _result;
+
+        [Newtonsoft.Json.JsonProperty("result", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GetSalesByCategoryOutput Result
+        {
+            get { return _result; }
+            set
+            {
+                if (_result != value)
+                {
+                    _result = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static OperationResultOfGetSalesByCategoryOutput FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResultOfGetSalesByCategoryOutput>(data);
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class GetSalesByCategoryOutput : System.ComponentModel.INotifyPropertyChanged
+    {
+        private System.Collections.ObjectModel.ObservableCollection<SaleByCategory> _sales;
+
+        [Newtonsoft.Json.JsonProperty("sales", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.ObjectModel.ObservableCollection<SaleByCategory> Sales
+        {
+            get { return _sales; }
+            set
+            {
+                if (_sales != value)
+                {
+                    _sales = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static GetSalesByCategoryOutput FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GetSalesByCategoryOutput>(data);
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SaleByCategory : System.ComponentModel.INotifyPropertyChanged
+    {
+        private string _productName;
+        private decimal _totalPurchase;
+
+        [Newtonsoft.Json.JsonProperty("productName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ProductName
+        {
+            get { return _productName; }
+            set
+            {
+                if (_productName != value)
+                {
+                    _productName = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        [Newtonsoft.Json.JsonProperty("totalPurchase", Required = Newtonsoft.Json.Required.Always)]
+        public decimal TotalPurchase
+        {
+            get { return _totalPurchase; }
+            set
+            {
+                if (_totalPurchase != value)
+                {
+                    _totalPurchase = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static SaleByCategory FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SaleByCategory>(data);
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
 
     }
 

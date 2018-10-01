@@ -3,6 +3,7 @@
     public enum OperationResults : byte
     {
         Success = 0,
-        UnexpectedError = 1,
+        Other = 100,
+        UnexpectedError = 101,
     }
 }

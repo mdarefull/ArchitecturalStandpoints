@@ -16,6 +16,7 @@ namespace ArchitecturalStandpoints
 
         public void ConfigureServices(IServiceCollection services)
         {
+            ApplicationRoot.ConfigureServices(services);
             services.AddSwagger();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

@@ -2,7 +2,7 @@
 
 namespace Commons.OperationResult
 {
-    public class UnexpectedErrorResult : OperationResult<OperationResults>
+    public class UnexpectedErrorResult : OperationResult
     {
         public Guid ErrorId { get; set; }
         public string ErrorTitle { get; set; }

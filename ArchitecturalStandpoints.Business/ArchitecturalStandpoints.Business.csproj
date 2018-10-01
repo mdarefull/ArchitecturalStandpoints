@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>ArchitecturalStandpoints</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArchitecturalStandpoints.Business.Abstracts\ArchitecturalStandpoints.Business.Abstracts.csproj" />
+  </ItemGroup>
+
+</Project>
