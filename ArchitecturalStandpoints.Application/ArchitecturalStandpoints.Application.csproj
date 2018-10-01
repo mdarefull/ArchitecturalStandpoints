@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <RootNamespace>ArchitecturalStandpoints</RootNamespace>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ArchitecturalStandpoints.Application.Root\ArchitecturalStandpoints.Application.Root.csproj" />
+    <ProjectReference Include="..\Commons.OperationResult\Commons.OperationResult.csproj" />
   </ItemGroup>
 
 </Project>

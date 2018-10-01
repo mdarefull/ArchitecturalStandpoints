@@ -15,7 +15,7 @@ namespace ArchitecturalStandpoints.Api.Tests
         public async Task<ActionResult<string>> SayHello(string name)
         {
             var greetResult = await DummyService.GreetAsync(toWho: name);
-            return greetResult.Message;
+            return greetResult.Result;
         }
     }
 }

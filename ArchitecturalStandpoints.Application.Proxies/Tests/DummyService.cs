@@ -15,14 +15,14 @@ namespace ArchitecturalStandpoints.Tests
         /// <param name="toWho">Name of the person to greet.</param>
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<GreetResult> GreetAsync(string toWho);
+        System.Threading.Tasks.Task<BasicOperationResultOfString> GreetAsync(string toWho);
 
         /// <summary>Simple operation that greets someone.</summary>
         /// <param name="toWho">Name of the person to greet.</param>
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<GreetResult> GreetAsync(string toWho, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<BasicOperationResultOfString> GreetAsync(string toWho, System.Threading.CancellationToken cancellationToken);
 
     }
 
@@ -61,7 +61,7 @@ namespace ArchitecturalStandpoints.Tests
         /// <param name="toWho">Name of the person to greet.</param>
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<GreetResult> GreetAsync(string toWho)
+        public System.Threading.Tasks.Task<BasicOperationResultOfString> GreetAsync(string toWho)
         {
             return GreetAsync(toWho, System.Threading.CancellationToken.None);
         }
@@ -71,7 +71,7 @@ namespace ArchitecturalStandpoints.Tests
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<GreetResult> GreetAsync(string toWho, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<BasicOperationResultOfString> GreetAsync(string toWho, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/DummyService/GreetAsync?");
@@ -110,10 +110,10 @@ namespace ArchitecturalStandpoints.Tests
                         if (status_ == "200")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            var result_ = default(GreetResult);
+                            var result_ = default(BasicOperationResultOfString);
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<GreetResult>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BasicOperationResultOfString>(responseData_, _settings.Value);
                                 return result_;
                             }
                             catch (System.Exception exception_)
@@ -128,7 +128,7 @@ namespace ArchitecturalStandpoints.Tests
                             throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
 
-                        return default(GreetResult);
+                        return default(BasicOperationResultOfString);
                     }
                     finally
                     {
@@ -177,39 +177,20 @@ namespace ArchitecturalStandpoints.Tests
 
 
 
-    /// <summary>Represents the result for the operation: String)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class GreetResult : System.ComponentModel.INotifyPropertyChanged
+    public partial class OperationResultOfOperationResults : System.ComponentModel.INotifyPropertyChanged
     {
-        private GreetResults _resultType;
-        private string _message;
+        private OperationResults _type;
 
-        /// <summary>Indicates the type of the result.</summary>
-        [Newtonsoft.Json.JsonProperty("resultType", Required = Newtonsoft.Json.Required.Always)]
-        public GreetResults ResultType
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        public OperationResults Type
         {
-            get { return _resultType; }
+            get { return _type; }
             set
             {
-                if (_resultType != value)
+                if (_type != value)
                 {
-                    _resultType = value;
-                    RaisePropertyChanged();
-                }
-            }
-        }
-
-        /// <summary>If GreetResults is Success then contains the 
-        /// returned message from the operation. null otherwise.</summary>
-        [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Message
-        {
-            get { return _message; }
-            set
-            {
-                if (_message != value)
-                {
-                    _message = value;
+                    _type = value;
                     RaisePropertyChanged();
                 }
             }
@@ -220,9 +201,9 @@ namespace ArchitecturalStandpoints.Tests
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
-        public static GreetResult FromJson(string data)
+        public static OperationResultOfOperationResults FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GreetResult>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResultOfOperationResults>(data);
         }
 
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -236,13 +217,77 @@ namespace ArchitecturalStandpoints.Tests
 
     }
 
-    /// <summary>Represents the set of possible results for the operation String)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum GreetResults
+    public partial class OperationResultOfOperationResultsAndString : OperationResultOfOperationResults, System.ComponentModel.INotifyPropertyChanged
+    {
+        private string _result;
+
+        [Newtonsoft.Json.JsonProperty("result", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Result
+        {
+            get { return _result; }
+            set
+            {
+                if (_result != value)
+                {
+                    _result = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static OperationResultOfOperationResultsAndString FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OperationResultOfOperationResultsAndString>(data);
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BasicOperationResultOfString : OperationResultOfOperationResultsAndString, System.ComponentModel.INotifyPropertyChanged
+    {
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static BasicOperationResultOfString FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicOperationResultOfString>(data);
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.11.0.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum OperationResults
     {
         Success = 0,
 
-        ErrorGeneric = 1,
+        UnexpectedError = 1,
 
     }
 
