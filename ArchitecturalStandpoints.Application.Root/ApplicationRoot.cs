@@ -9,6 +9,7 @@ namespace ArchitecturalStandpoints
     {
         public static void ConfigureServices(IServiceCollection services)
             => services
+               .AddScoped<IDummyDisposable, DummyDisposable>()
                .AddTransient<IDbConnection, SqlConnection>(service => new SqlConnection("Server=.; Database=Northwind; Trusted_Connection=True;"))
                .AddTransient<ISalesService, SalesService>();
     }
