@@ -2,7 +2,7 @@
 {
     public class SaleByCategory
     {
-        public bool ProductName { get; set; }
+        public string ProductName { get; set; }
         public decimal TotalPurchase { get; set; }
     }
 }
