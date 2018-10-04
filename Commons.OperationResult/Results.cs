@@ -1,6 +1,6 @@
 ﻿namespace Commons.OperationResult
 {
-    public enum OperationResults : byte
+    public enum Results : byte
     {
         Success = 0,
         Other = 100,

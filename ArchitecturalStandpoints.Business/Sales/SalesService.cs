@@ -12,14 +12,14 @@ namespace ArchitecturalStandpoints.Sales
         protected virtual IDbConnection DbConnection { get; }
         public SalesService(IDbConnection dbConnection) => DbConnection = dbConnection;
 
-        public virtual async Task<OperationResult<IReadOnlyCollection<SaleByCategory>>> GetSalesByCategoryAsync(GetSalesByCategoryInput input)
+        public virtual async Task<Result<IReadOnlyCollection<SaleByCategory>>> GetSalesByCategoryAsync(GetSalesByCategoryInput input)
         {
             var spResult = await DbConnection
                                  .QueryAsync<SaleByCategory>(
                                    "SalesByCategory",
                                    input,
                                    commandType: CommandType.StoredProcedure);
-            return OperationResult.Success<IReadOnlyCollection<SaleByCategory>>(spResult.ToArray());
+            return Result.Success<IReadOnlyCollection<SaleByCategory>>(spResult.ToArray());
         }
     }
 }

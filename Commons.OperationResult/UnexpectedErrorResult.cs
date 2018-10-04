@@ -2,13 +2,13 @@
 
 namespace Commons.OperationResult
 {
-    public class UnexpectedErrorResult : OperationResult
+    public class UnexpectedErrorResult : Result
     {
         public Guid ErrorId { get; set; }
         public string ErrorTitle { get; set; }
         public string ErrorDescription { get; set; }
         public Exception InnerException { get; set; }
 
-        public UnexpectedErrorResult() => Type = OperationResults.UnexpectedError;
+        public UnexpectedErrorResult() => Type = Results.UnexpectedError;
     }
 }

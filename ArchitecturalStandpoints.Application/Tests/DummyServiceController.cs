@@ -41,9 +41,9 @@ namespace ArchitecturalStandpoints.Tests
         /// <param name="toWho">Name of the person to greet.</param>
         /// <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
         [HttpGet]
-        public async Task<ActionResult<OperationResult<string>>> Greet(string toWho)
+        public async Task<ActionResult<Result<string>>> Greet(string toWho)
         {
-            var result = OperationResult.Success($"Greetings {toWho ?? "(anonymous guy)"}!");
+            var result = Result.Success($"Greetings {toWho ?? "(anonymous guy)"}!");
             return await Task.FromResult(result);
         } 
         #endregion

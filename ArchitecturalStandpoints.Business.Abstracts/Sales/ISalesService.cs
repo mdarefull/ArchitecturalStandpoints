@@ -6,6 +6,6 @@ namespace ArchitecturalStandpoints.Sales
 {
     public interface ISalesService
     {
-        Task<OperationResult<IReadOnlyCollection<SaleByCategory>>> GetSalesByCategoryAsync(GetSalesByCategoryInput input);
+        Task<Result<IReadOnlyCollection<SaleByCategory>>> GetSalesByCategoryAsync(GetSalesByCategoryInput input);
     }
 }
