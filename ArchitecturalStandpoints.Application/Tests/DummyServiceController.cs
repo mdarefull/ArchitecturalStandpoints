@@ -1,16 +1,10 @@
-﻿using ArchitecturalStandpoints.Application.Models;
-using ArchitecturalStandpoints.Sales;
+﻿using ArchitecturalStandpoints.Sales;
 using Commons.OperationResult;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace ArchitecturalStandpoints.Tests
@@ -25,12 +19,10 @@ namespace ArchitecturalStandpoints.Tests
         #region Boiler Plate
         private ISalesService SalesService { get; }
         private IDbConnection DbConnection { get; }
-        private NorthwindContext Context { get; set; }
-        public DummyServiceController(ISalesService salesService, IDbConnection dbConnection, NorthwindContext context)
+        public DummyServiceController(ISalesService salesService, IDbConnection dbConnection)
         {
             SalesService = salesService;
             DbConnection = dbConnection;
-            Context = context;
         }
 
         /// <summary>
@@ -43,7 +35,7 @@ namespace ArchitecturalStandpoints.Tests
         {
             var result = Result.Success($"Greetings {toWho ?? "(anonymous guy)"}!");
             return await Task.FromResult(result);
-        } 
+        }
         #endregion
 
         #region Dapper Samples
@@ -113,96 +105,6 @@ namespace ArchitecturalStandpoints.Tests
         //    // 4- Perform the same operation to all the children of these tasks (moving to step 2)
         //    // Complexity O(n2) in both places, Server and DB...
         //    throw new NotImplementedException();
-        #endregion
-
-        #region Entity Framework samples
-        // Simply to check that the Db scaffolding worked.
-        [HttpGet]
-        public async Task<IEnumerable<Products>> EF_GetProducts() => await Context.Products.ToListAsync();
-
-        // Show how EF works with SPs - Note it is much more verbose.
-        [HttpGet]
-        public async Task<IEnumerable<SaleByCategory>> EF_SalesByCategory()
-        {
-            var categoryParam = new SqlParameter("CategoryName", "Beverages");
-            var yearParam = new SqlParameter("OrdYear", 1998);
-            return await Context
-                        .SalesByCategory
-                        .FromSql(
-                            sql: $"EXECUTE dbo.SalesByCategory @CategoryName, @OrdYear",
-                            categoryParam, yearParam)
-                        .ToListAsync();
-        }
-
-        // Built-in Transactions do not work using SPs.
-        [HttpGet]
-        public async Task<IEnumerable<Test>> EF_Transactions(int option)
-        {
-            // Ensure there's no data on the table:
-            // Here I'm using Dapper as a shortcut, to avoid using EF and to interfere with its transactions.
-            await DbConnection.ExecuteAsync("DELETE FROM Test");
-
-            // Inserts 10 tests:
-            for (var i = 0; i < 10; i++)
-            {
-                var nameParam = new SqlParameter("name", $"Test - {i}");
-                await Context.Database.ExecuteSqlCommandAsync("EXECUTE dbo.CreateTest @name", nameParam);
-            }
-
-            // Let's insert a test using the DbContext:
-            Context.Test.Add(new Test { Name = "Test XXXX" });
-
-            if (option == 0)
-            {
-                await Context.SaveChangesAsync();
-            }
-
-            // Ensures the context is disposed.
-            Context.Dispose();
-
-            // Return the table content, ensuring the entities won't be cached by EF
-            return DbConnection.Query<Test>("SELECT * FROM TEST");
-        }
-
-        // We can modify query types after retrieving them. Their state won't be tracked.
-        [HttpGet]
-        public async Task<SaleByCategory> EF_ModifyAQueryType()
-        {
-            var sales = await EF_SalesByCategory();
-            var firstSale = sales.FirstOrDefault();
-            if (firstSale != null)
-            {
-                firstSale.ProductName = "Another name hehehe";
-                await Context.SaveChangesAsync();
-            }
-
-            return firstSale;
-        }
-
-        // Query Caching Tests Vs Sales report GetAll
-        // Apparently both are executed twice.
-        [HttpGet]
-        public async Task<string> Ef_CachingAll()
-        {
-            var products = await EF_GetProducts();
-            //Thread.Sleep(1000);
-            var tests2 = await EF_GetProducts();
-
-            var sales = await EF_SalesByCategory();
-            //Thread.Sleep(1000);
-            var sales2 = await EF_SalesByCategory();
-
-            return "Done";
-        }
-        // Same, executed twice...
-        [HttpGet]
-        public async Task<string> Ef_CachingOne()
-        {
-            var productA = await Context.Products.FirstOrDefaultAsync();
-            var productB = await Context.Products.FirstOrDefaultAsync();
-
-            return "Done";
-        }
         #endregion
     }
 }
