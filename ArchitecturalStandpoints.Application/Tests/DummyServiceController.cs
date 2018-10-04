@@ -25,13 +25,11 @@ namespace ArchitecturalStandpoints.Tests
         #region Boiler Plate
         private ISalesService SalesService { get; }
         private IDbConnection DbConnection { get; }
-        private IDummyDisposable DummyDisposable { get; }
         private NorthwindContext Context { get; set; }
-        public DummyServiceController(ISalesService salesService, IDbConnection dbConnection, IDummyDisposable dummyDisposable, NorthwindContext context)
+        public DummyServiceController(ISalesService salesService, IDbConnection dbConnection, NorthwindContext context)
         {
             SalesService = salesService;
             DbConnection = dbConnection;
-            DummyDisposable = dummyDisposable;
             Context = context;
         }
 

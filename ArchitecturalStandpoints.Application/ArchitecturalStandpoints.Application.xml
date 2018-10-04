@@ -9,7 +9,7 @@
             Dummy service for testing purposes.
             </summary>
         </member>
-        <member name="M:ArchitecturalStandpoints.Tests.DummyServiceController.GreetAsync(System.String)">
+        <member name="M:ArchitecturalStandpoints.Tests.DummyServiceController.Greet(System.String)">
             <summary>
             Simple operation that greets someone.
             </summary>
