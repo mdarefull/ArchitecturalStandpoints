@@ -1,4 +1,4 @@
-﻿using ArchitecturalStandpoints.Sales;
+﻿using ArchitecturalStandpoints.Customers;
 using Commons.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using System.Data;
@@ -12,6 +12,6 @@ namespace ArchitecturalStandpoints
             => services
                .AddScoped<IDbConnection, SqlConnection>(s => new SqlConnection("Server=.; Database=Northwind; Trusted_Connection=True;"))
                .AddScoped<IUnitOfWork, UnitOfWork>()
-               .AddTransient<ISalesService, SalesService>();
+               .AddTransient<ICustomerRepository, CustomerRepository>();
     }
 }

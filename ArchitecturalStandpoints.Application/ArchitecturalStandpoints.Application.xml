@@ -4,17 +4,5 @@
         <name>ArchitecturalStandpoints.Application</name>
     </assembly>
     <members>
-        <member name="T:ArchitecturalStandpoints.Tests.DummyServiceController">
-            <summary>
-            Dummy service for testing purposes.
-            </summary>
-        </member>
-        <member name="M:ArchitecturalStandpoints.Tests.DummyServiceController.Greet(System.String)">
-            <summary>
-            Simple operation that greets someone.
-            </summary>
-            <param name="toWho">Name of the person to greet.</param>
-            <returns>Message greeting the given person's name or anonymously greeting if no name is provided.</returns>
-        </member>
     </members>
 </doc>

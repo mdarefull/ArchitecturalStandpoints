@@ -1,35 +1,25 @@
-﻿namespace Commons.OperationResult
+﻿using System;
+
+namespace Commons.OperationResult
 {
-    public class Result<TResult> : Result
+    public static class Result
     {
-        public virtual TResult Value { get; set; }
+        public static IResult Success() => new SuccessResult();
+        public static IResult<TResult> Success<TResult>(TResult value) => new SuccessResult<TResult> { Value = value };
 
-        public virtual Result<TTarget> ToResult<TTarget>(TTarget result)
-               => new Result<TTarget>
-               {
-                   Type = Type,
-                   Value = result
-               };
+        public static IResult Failure(string title = null, string description = null) => new FailureResult { ErrorTitle = title, ErrorDescription = description };
+        public static IResult<TResult> Failure<TResult>(string title = null, string description = null) => new FailureResult<TResult> { ErrorTitle = title, ErrorDescription = description };
 
-        public static Result<TResult> Success(TResult result)
-            => new Result<TResult>
-            {
-                Type = Results.Success,
-                Value = result,
-            };
+        public static IResult Exception(Exception innerException) => new ExceptionResult { InnerException = innerException };
+        public static IResult<TResult> Exception<TResult>(Exception innerException) => new ExceptionResult<TResult> { InnerException = innerException };
+
+        public static IResult<TResult> NotFound<TResult>() => new NotFoundResult<TResult>();
     }
 
-    public class Result
+    public interface IResult { }
+
+    public interface IResult<TResult> : IResult
     {
-        public virtual Results Type { get; set; }
-
-        public static Result Success() => new Result { Type = Results.Success, };
-
-        public static Result<TResult> Success<TResult>(TResult result)
-            => new Result<TResult>
-            {
-                Type = Results.Success,
-                Value = result,
-            };
+        IResult<TNewResult> ConvertTo<TNewResult>(TNewResult newResult = default);
     }
 }

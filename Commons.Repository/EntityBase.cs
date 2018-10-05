@@ -1,6 +1,6 @@
 ﻿namespace Commons.Repository
 {
-    public class EntityBase<TId> : IEntity<TId> where TId : struct
+    public class EntityBase<TId> : IEntity<TId>
     {
         public virtual TId Id { get; set; }
 

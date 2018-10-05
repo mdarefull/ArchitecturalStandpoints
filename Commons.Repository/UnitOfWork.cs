@@ -10,7 +10,7 @@ namespace Commons.Repository
         public UnitOfWork(IDbConnection connection) => Connection = connection;
 
         // [TODO] The default IL value is DB-specific.
-        public Result<IDbTransaction> BeginTransaction(IsolationLevel? isolationLevel = null)
+        public IResult<IDbTransaction> BeginTransaction(IsolationLevel? isolationLevel = null)
         {
             // [TODO] Improve this, we should check and understand each one of the Connection.State values.
             Connection.Open();
@@ -21,7 +21,7 @@ namespace Commons.Repository
             return Result.Success(transaction);
         }
 
-        public Result Commit()
+        public IResult Commit()
         {
             try
             {
@@ -41,7 +41,7 @@ namespace Commons.Repository
             return Result.Success();
         }
 
-        public Result Rollback()
+        public IResult Rollback()
         {
             try
             {

@@ -7,18 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArchitecturalStandpoints.Business.Abstracts\ArchitecturalStandpoints.Business.Abstracts.csproj" />
-    <ProjectReference Include="..\ArchitecturalStandpoints.Business\ArchitecturalStandpoints.Business.csproj" />
-    <ProjectReference Include="..\Commons.Repository\Commons.Repository.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.dependencyinjection.abstractions\2.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SqlClient">
-      <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\system.data.sqlclient\4.5.1\ref\netcoreapp2.1\System.Data.SqlClient.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\ArchitecturalStandpoints.Business.Abstracts\ArchitecturalStandpoints.Business.Abstracts.csproj" />
+    <ProjectReference Include="..\ArchitecturalStandpoints.Business.Repositories\ArchitecturalStandpoints.Business.Repositories.csproj" />
+    <ProjectReference Include="..\Commons.Repository\Commons.Repository.csproj" />
   </ItemGroup>
 
 </Project>

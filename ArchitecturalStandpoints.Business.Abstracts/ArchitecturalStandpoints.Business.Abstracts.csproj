@@ -7,6 +7,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Commons.OperationResult\Commons.OperationResult.csproj" />
+    <ProjectReference Include="..\Commons.Repository\Commons.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.Annotations">
+      <HintPath>..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.1.0\ref\netcoreapp2.1\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

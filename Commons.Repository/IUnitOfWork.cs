@@ -9,8 +9,8 @@ namespace Commons.Repository
         IDbConnection Connection { get; set; }
         IDbTransaction Transaction { get; set; }
 
-        Result<IDbTransaction> BeginTransaction(IsolationLevel? isolationLevel = null);
-        Result Commit();
-        Result Rollback();
+        IResult<IDbTransaction> BeginTransaction(IsolationLevel? isolationLevel = null);
+        IResult Commit();
+        IResult Rollback();
     }
 }
