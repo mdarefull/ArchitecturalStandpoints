@@ -1,6 +1,9 @@
 ﻿using ArchitecturalStandpoints.Customers;
+using Commons.Api;
 using Commons.OperationResult;
+using Commons.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,10 +12,11 @@ namespace ArchitecturalStandpoints.Application.Customers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public sealed class CustomerController : ControllerBase
+    public sealed class CustomerController : BaseController
     {
         private ICustomerRepository Repository { get; }
-        public CustomerController(ICustomerRepository repository) => Repository = repository;
+        public CustomerController(ICustomerRepository repository,
+                                  ILogger<CustomerController> logger, IUnitOfWork unitOfWork) : base(logger, unitOfWork) => Repository = repository;
 
         // GET: api/Customer
         [HttpGet]
@@ -44,20 +48,36 @@ namespace ArchitecturalStandpoints.Application.Customers
 
             if (result is NotFoundResult<Customer>)
             {
+                Logger.LogWarning(nameof(NotFoundResult<Customer>), id);
                 return NotFound(id);
             }
 
             if (result is ExceptionResult exception)
             {
+                Logger.LogError(nameof(ExceptionResult), exception.ErrorTitle, exception.ErrorDescription, exception.InnerException);
                 return StatusCode(500, "Unexpected Exception");
             }
 
+            Logger.LogError("Unexpected Return Type", result);
             return StatusCode(500, "Unexpected Return Type");
         }
 
         // POST: api/Customer
         [HttpPost]
-        public void Post(Customer customer) => new NotImplementedException();
+        public async Task<ActionResult<Customer>> Post(Customer customer)
+        {
+            UnitOfWork.BeginTransaction();
+
+            var result = await Repository.AddAsync(customer);
+            if (result is SuccessResult<Customer> success)
+            {
+                UnitOfWork.Commit();
+                return success.Value;
+            }
+
+            Logger.LogError("Unexpected Return Type", result);
+            return StatusCode(501);
+        }
 
         // PUT: api/Customer/5
         [HttpPut("{id}")]
