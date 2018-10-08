@@ -4,5 +4,24 @@
         <name>ArchitecturalStandpoints.Application</name>
     </assembly>
     <members>
+        <member name="T:ArchitecturalStandpoints.Customers.CustomerController">
+            <summary>
+            Represents the set of application's services for a Customer.
+            </summary>
+        </member>
+        <member name="M:ArchitecturalStandpoints.Customers.CustomerController.#ctor(ArchitecturalStandpoints.Customers.ICustomerRepository,Microsoft.Extensions.Logging.ILogger{ArchitecturalStandpoints.Customers.CustomerController},Commons.Repository.IUnitOfWork)">
+            <summary>
+            Creates a new instance of a <see cref="T:ArchitecturalStandpoints.Customers.CustomerController"/>
+            </summary>
+            <param name="repository">Customer repository implementation.</param>
+            <param name="logger">Logger implementation.</param>
+            <param name="unitOfWork">Unit of Work implementation.</param>
+        </member>
+        <member name="M:ArchitecturalStandpoints.Customers.CustomerController.Get">
+            <summary>
+            Get the list of customers.
+            </summary>
+            <returns>List of customers of the application.</returns>
+        </member>
     </members>
 </doc>
