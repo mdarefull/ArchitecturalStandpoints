@@ -1,5 +1,4 @@
-﻿using ArchitecturalStandpoints.Customers;
-using Commons.Api;
+﻿using Commons.Api;
 using Commons.OperationResult;
 using Commons.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -8,32 +7,43 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ArchitecturalStandpoints.Application.Customers
+namespace ArchitecturalStandpoints.Customers
 {
+    /// <summary>
+    /// Represents the set of application's services for a Customer.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public sealed class CustomerController : BaseController
     {
         private ICustomerRepository Repository { get; }
+        /// <summary>
+        /// Creates a new instance of a <see cref="CustomerController"/>
+        /// </summary>
+        /// <param name="repository">Customer repository implementation.</param>
+        /// <param name="logger">Logger implementation.</param>
+        /// <param name="unitOfWork">Unit of Work implementation.</param>
         public CustomerController(ICustomerRepository repository,
                                   ILogger<CustomerController> logger, IUnitOfWork unitOfWork) : base(logger, unitOfWork) => Repository = repository;
 
         // GET: api/Customer
+        /// <summary>
+        /// Get the list of customers.
+        /// </summary>
+        /// <returns>List of customers of the application.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> Get()
         {
             var result = await Repository.GetAllAsync();
-            if (result is SuccessResult<IEnumerable<Customer>> success)
+            switch (result)
             {
-                return Ok(success.Value);
+                case SuccessResult<IEnumerable<Customer>> success:
+                    return Ok(success.Value);
+                case ExceptionResult _:
+                    return StatusCode(500, "Unexpected Exception");
+                default:
+                    return StatusCode(500, "Unexpected Return Type");
             }
-
-            if (result is ExceptionResult exception)
-            {
-                return StatusCode(500, "Unexpected Exception");
-            }
-
-            return StatusCode(500, "Unexpected Return Type");
         }
 
         // GET: api/Customer/5
@@ -81,10 +91,10 @@ namespace ArchitecturalStandpoints.Application.Customers
 
         // PUT: api/Customer/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value) => new NotImplementedException();
+        public Customer Put(int id, Customer customer) => throw new NotImplementedException();
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id) => new NotImplementedException();
+        public void Delete(int id) => throw new NotImplementedException();
     }
 }

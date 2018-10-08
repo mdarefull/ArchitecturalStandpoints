@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Commons.OperationResult</name>
+    </assembly>
+    <members>
+        <member name="T:Commons.OperationResult.ExceptionResult">
+            <summary>
+            Represents the result of executing an operation that failed by getting into an exceptional state.
+            It is designed to be returned by operations that does not return a value (<code>void</code>).
+            </summary>
+            <remarks>
+            Usually, this class will be used to wrap any handled exception, but can also be
+            used to return custom exceptions for custom scenarios.
+            </remarks>
+        </member>
+        <member name="P:Commons.OperationResult.ExceptionResult.InnerException">
+            <summary>
+            Gets or sets the exception that caused this result.
+            </summary>
+        </member>
+        <member name="T:Commons.OperationResult.ExceptionResult`1">
+            <summary>
+            Represents the result of executing an operation that failed by getting into an exceptional state.
+            It is designed to be returned by operations that return a value (not <code>void</code>).
+            </summary>
+            <typeparam name="TResult">The return value's type of the operation.</typeparam>
+            <remarks>
+            Usually, this class will be used to wrap any handled exception, but can also be
+            used to return custom exceptions for custom scenarios.
+            </remarks>
+        </member>
+        <member name="M:Commons.OperationResult.ExceptionResult`1.ConvertTo``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="T:Commons.OperationResult.FailureResult">
+            <summary>
+            Represents the result of executing an operation that failed. 
+            It is the base class for the result of every operation execution that failed.
+            It is designed to be returned by operations that does not return a value (<code>void</code>).
+            </summary>
+        </member>
+        <member name="P:Commons.OperationResult.FailureResult.ErrorTitle">
+            <summary>
+            Gets or sets a title for the failure.
+            </summary>
+        </member>
+        <member name="P:Commons.OperationResult.FailureResult.ErrorDescription">
+            <summary>
+            Gets or sets a description for the failure.
+            </summary>
+        </member>
+        <member name="T:Commons.OperationResult.FailureResult`1">
+            <summary>
+            Represents the result of executing an operation that failed.
+            It is the base class for the result of every operation execution that failed.
+            It is designed to be returned by operations that return a value (not <code>void</code>).
+            </summary>
+            <typeparam name="TResult">The return value's type of the operation.</typeparam>
+        </member>
+        <member name="M:Commons.OperationResult.FailureResult`1.ConvertTo``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="T:Commons.OperationResult.IResult">
+            <summary>
+            Implements the Operation result pattern.
+            Represents the result of executing an operation that doesn't return any value.
+            </summary>
+        </member>
+        <member name="T:Commons.OperationResult.IResult`1">
+            <summary>
+            Implements the Operation result pattern.
+            Represents the result of executing an operation that return a value.
+            </summary>
+            <typeparam name="TResult">Return type of the operation.</typeparam>
+        </member>
+        <member name="M:Commons.OperationResult.IResult`1.ConvertTo``1(``0)">
+            <summary>
+            Converts the operation result into a new instance of istels with the new return type.
+            </summary>
+            <typeparam name="TNewResult">Return type of the operation that it will be converted to.</typeparam>
+            <param name="newResult">
+            Return value of the operation that it will be converted to. In the case the result type don't return a value 
+             (typically a failure), we can safely pass it default's value.
+            </param>
+            <returns>A new instance of the operation result keeping its properties but with a new return type.</returns>
+        </member>
+        <member name="T:Commons.OperationResult.NotFoundResult`1">
+            <summary>
+            Represents the result of execution an operation designed to retrieve a resource that was not able to find.
+            </summary>
+            <typeparam name="TResult">The return value's type of the operation.</typeparam>
+        </member>
+        <member name="M:Commons.OperationResult.NotFoundResult`1.ConvertTo``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="T:Commons.OperationResult.Result">
+            <summary>
+            Provides methods to create common operation results as simple IResult.
+            </summary>
+        </member>
+        <member name="M:Commons.OperationResult.Result.Success">
+            <summary>
+            Creates a new <see cref="T:Commons.OperationResult.SuccessResult"/>.
+            </summary>
+            <returns>A new instance of <see cref="T:Commons.OperationResult.SuccessResult"/>.</returns>
+        </member>
+        <member name="M:Commons.OperationResult.Result.Success``1(``0)">
+            <summary>
+            Creates a new <see cref="T:Commons.OperationResult.SuccessResult`1"/>.
+            </summary>
+            <typeparam name="TResult">Return value's type of the operation.</typeparam>
+            <param name="value">The return value of the operation.</param>
+            <returns>A new instance of <see cref="M:Commons.OperationResult.Result.Success``1(``0)"/>.</returns>
+        </member>
+        <member name="M:Commons.OperationResult.Result.Failure(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Commons.OperationResult.FailureResult"/>.
+            </summary>
+            <param name="title">Title for the error.</param>
+            <param name="description">Description of the error.</param>
+            <returns>A new instance of <see cref="T:Commons.OperationResult.FailureResult"/>.</returns>
+        </member>
+        <member name="M:Commons.OperationResult.Result.Failure``1(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Commons.OperationResult.FailureResult`1"/>
+            </summary>
+            <typeparam name="TResult">Return value's type of the operation.</typeparam>
+            <param name="title">Title for the error.</param>
+            <param name="description">Description of the error.</param>
+            <returns>A new instance of <see cref="T:Commons.OperationResult.FailureResult`1"/>.</returns>
+        </member>
+        <member name="M:Commons.OperationResult.Result.Exception(System.Exception)">
+            <summary>
+            Creates a new <see cref="T:Commons.OperationResult.ExceptionResult"/>.
+            </summary>
+            <param name="innerException"><see cref="M:Commons.OperationResult.Result.Exception(System.Exception)"/> that was caught.</param>
+            <returns>A new instance of <see cref="T:Commons.OperationResult.ExceptionResult"/>.</returns>
+        </member>
+        <member name="M:Commons.OperationResult.Result.Exception``1(System.Exception)">
+            <summary>
+            Creates a new <see cref="M:Commons.OperationResult.Result.Exception``1(System.Exception)"/>.
+            </summary>
+            <typeparam name="TResult">Return value's type of the operation.</typeparam>
+            <param name="innerException"><see cref="M:Commons.OperationResult.Result.Exception(System.Exception)"/> that was caught.</param>
+            <returns>A new instance of <see cref="M:Commons.OperationResult.Result.Exception``1(System.Exception)"/>.</returns>
+        </member>
+        <member name="M:Commons.OperationResult.Result.NotFound``1">
+            <summary>
+            Creates a new <see cref="T:Commons.OperationResult.NotFoundResult`1"/>.
+            </summary>
+            <typeparam name="TResult">Return value's type of the operation.</typeparam>
+            <returns>A new instance of <see cref="T:Commons.OperationResult.NotFoundResult`1"/>.</returns>
+        </member>
+        <member name="T:Commons.OperationResult.SuccessResult">
+            <summary>
+            Represents the result of executing an operation sucessfully but that 
+            doesn't return any value.
+            </summary>
+        </member>
+        <member name="T:Commons.OperationResult.SuccessResult`1">
+            <summary>
+            Represents the result of executing an operation sucessfully 
+            that is expected to return a value.
+            </summary>
+            <typeparam name="TResult">The return value's type of the operation.</typeparam>
+        </member>
+        <member name="P:Commons.OperationResult.SuccessResult`1.Value">
+            <summary>
+            Gets or sets the return value of the operation.
+            </summary>
+        </member>
+        <member name="M:Commons.OperationResult.SuccessResult`1.ConvertTo``1(``0)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
