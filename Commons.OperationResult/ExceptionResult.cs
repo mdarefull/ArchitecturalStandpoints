@@ -30,7 +30,7 @@ namespace Commons.OperationResult
     public sealed class ExceptionResult<TResult> : ExceptionResult, IResult<TResult>
     {
         /// <inheritdoc />
-        public IResult<TNewResult> ConvertTo<TNewResult>(TNewResult newResult)
+        public IResult<TNewResult> ConvertTo<TNewResult>(TNewResult newResult = default)
             => new ExceptionResult<TNewResult>
             {
                 ErrorDescription = ErrorDescription,

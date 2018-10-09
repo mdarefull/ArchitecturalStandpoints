@@ -9,43 +9,28 @@ namespace Commons.OperationResult.Tests
     public class IResultTest
     {
         [Fact]
-        public void IResult_Has_NoMembers()
+        public void IResult_Is_WellDefined()
         {
             // Arrange:
             var type = typeof(IResult);
 
-            // Act:
-            var members = type.GetMembers();
-
             // Assert:
-            members.Should().BeEmpty();
+            type.IsInterface.Should().BeTrue();
+            type.GetMembers().Should().BeEmpty();
         }
 
         [Fact]
-        public void IResultOfT_Is_Generic()
+        public void IResultOfT_Is_WellDefined()
         {
             // Arrange:
-            var type = typeof(IResult<>);
+            var type = typeof(IResult<object>);
+            var members = 1;
 
             // Assert:
+            type.IsInterface.Should().BeTrue();
             type.IsGenericType.Should().BeTrue();
+            type.GetMembers().Should().HaveCount(members);
         }
-
-        [Fact]
-        public void IResultOfT_Has_NMembers()
-        {
-            // Arrange:
-            var type = typeof(IResult<>);
-            var n = 1;
-
-            // Act:
-            var members = type.GetMembers();
-
-            // Assert:
-            members.Should().HaveCount(n);
-            Assert.Single(members);
-        }
-
         [Fact]
         public void IResultOfT_Defines_ConvertTo()
         {
