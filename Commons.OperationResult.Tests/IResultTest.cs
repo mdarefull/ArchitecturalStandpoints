@@ -1,3 +1,7 @@
+using System.Linq;
+
+using FluentAssertions;
+
 using Xunit;
 
 namespace Commons.OperationResult.Tests
@@ -14,7 +18,7 @@ namespace Commons.OperationResult.Tests
             var members = type.GetMembers();
 
             // Assert:
-            Assert.Empty(members);
+            members.Should().BeEmpty();
         }
 
         [Fact]
@@ -24,7 +28,7 @@ namespace Commons.OperationResult.Tests
             var type = typeof(IResult<>);
 
             // Assert:
-            Assert.True(type.IsGenericType);
+            type.IsGenericType.Should().BeTrue();
         }
 
         [Fact]
@@ -32,11 +36,13 @@ namespace Commons.OperationResult.Tests
         {
             // Arrange:
             var type = typeof(IResult<>);
+            var n = 1;
 
             // Act:
             var members = type.GetMembers();
 
             // Assert:
+            members.Should().HaveCount(n);
             Assert.Single(members);
         }
 
@@ -51,18 +57,20 @@ namespace Commons.OperationResult.Tests
             var method = type.GetMethod(methodName);
 
             // Assert:
-            Assert.NotNull(method);
-            Assert.True(method.IsGenericMethod);
-            Assert.Single(method.GetGenericArguments());
+            method.Should().NotBeNull();
+            method.IsGenericMethod.Should().BeTrue();
+            method.GetGenericArguments().Should().ContainSingle();
 
             var returnType = method.ReturnType;
-            Assert.Contains(nameof(IResult), returnType.Name);
-            Assert.True(returnType.IsGenericType);
+            returnType.Name.Should().StartWith(nameof(IResult));
+            returnType.IsGenericType.Should().BeTrue();
 
             var parameters = method.GetParameters();
-            Assert.Single(parameters);
-            Assert.True(parameters[0].IsOptional);
-            Assert.True(parameters[0].ParameterType.IsGenericParameter);
+            parameters.Should().ContainSingle();
+
+            var parameter = parameters.First();
+            parameter.IsOptional.Should().BeTrue();
+            parameter.ParameterType.IsGenericParameter.Should().BeTrue();
         }
     }
 }
