@@ -37,7 +37,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ArchitecturalStandpoints.Pr
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "9974"
-		SlnRelativePath = "ArchitecturalStandpoints.Presentation.ClientApp\"
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturalStandpoints.Application.Root", "ArchitecturalStandpoints.Application.Root\ArchitecturalStandpoints.Application.Root.csproj", "{16DA91D9-E1CC-43CF-A72C-D8776CCB294C}"
@@ -60,9 +59,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons.Repository", "Commo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturalStandpoints.Business.Repositories", "ArchitecturalStandpoints.Business.Repositories\ArchitecturalStandpoints.Business.Repositories.csproj", "{CF72EA10-784E-4282-A0A1-D515D76782A8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons.Api", "Commons.Api\Commons.Api.csproj", "{AC6433ED-7F2B-45AC-A894-2C4789844FE4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons.OperationResult.Tests", "Commons.OperationResult.Tests\Commons.OperationResult.Tests.csproj", "{D4474DED-2E0B-4184-B1D6-D58878EC4017}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons.OperationResult.Tests", "Commons.OperationResult.Tests\Commons.OperationResult.Tests.csproj", "{D4474DED-2E0B-4184-B1D6-D58878EC4017}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -112,10 +109,6 @@ Global
 		{CF72EA10-784E-4282-A0A1-D515D76782A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF72EA10-784E-4282-A0A1-D515D76782A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF72EA10-784E-4282-A0A1-D515D76782A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC6433ED-7F2B-45AC-A894-2C4789844FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC6433ED-7F2B-45AC-A894-2C4789844FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC6433ED-7F2B-45AC-A894-2C4789844FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC6433ED-7F2B-45AC-A894-2C4789844FE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D4474DED-2E0B-4184-B1D6-D58878EC4017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D4474DED-2E0B-4184-B1D6-D58878EC4017}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4474DED-2E0B-4184-B1D6-D58878EC4017}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -136,7 +129,6 @@ Global
 		{B84EA97B-153C-4241-B0C3-685CA53FE627} = {9F7173B1-8639-4E21-A46A-3D97299618C5}
 		{2EA536CC-6B96-4970-991D-234EB05D2EB3} = {01CBD95D-86BF-43BB-8DC4-F864D2012486}
 		{CF72EA10-784E-4282-A0A1-D515D76782A8} = {6156F164-1E6D-461D-9350-25CBA885DE05}
-		{AC6433ED-7F2B-45AC-A894-2C4789844FE4} = {01CBD95D-86BF-43BB-8DC4-F864D2012486}
 		{D4474DED-2E0B-4184-B1D6-D58878EC4017} = {01CBD95D-86BF-43BB-8DC4-F864D2012486}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
