@@ -11,12 +11,13 @@ namespace Commons.OperationResult.Tests
             // Arrange:
             var type = typeof(FailureResult);
             var basicMembers = 5;
-            var propertyMembers = 2 * 3;
+            var propertyMembers = 3 * 3;
             var totalMembers = basicMembers + propertyMembers;
 
             // Assert:
             type.Should().Implement<IResult>()
                 .And.NotBeSealed()
+                .And.HaveProperty<string>(nameof(FailureResult.ErrorCode))
                 .And.HaveProperty<string>(nameof(FailureResult.ErrorTitle))
                 .And.HaveProperty<string>(nameof(FailureResult.ErrorDescription));
             type.GetMembers().Should().HaveCount(totalMembers);
@@ -28,7 +29,7 @@ namespace Commons.OperationResult.Tests
             // Arrange:
             var type = typeof(FailureResult<object>);
             var basicMembers = 5;
-            var inheritedMembers = 2 * 3;
+            var inheritedMembers = 3 * 3;
             var implementedMembers = 1;
             var totalMembers = basicMembers + inheritedMembers + implementedMembers;
 

@@ -23,10 +23,17 @@ namespace Commons.OperationResult
         /// <summary>
         /// Creates a new <see cref="FailureResult"/>.
         /// </summary>
+        /// <param name="code">Code for the error.</param>
         /// <param name="title">Title for the error.</param>
         /// <param name="description">Description of the error.</param>
         /// <returns>A new instance of <see cref="FailureResult"/>.</returns>
-        public static IResult Failure(string title = null, string description = null) => new FailureResult { ErrorTitle = title, ErrorDescription = description };
+        public static IResult Failure(string code = null, string title = null, string description = null)
+            => new FailureResult
+            {
+                ErrorCode = code,
+                ErrorTitle = title,
+                ErrorDescription = description,
+            };
         /// <summary>
         /// Creates a new <see cref="FailureResult{TResult}"/>
         /// </summary>

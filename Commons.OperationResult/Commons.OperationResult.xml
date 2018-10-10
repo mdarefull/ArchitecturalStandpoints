@@ -40,6 +40,11 @@
             It is designed to be returned by operations that does not return a value (<code>void</code>).
             </summary>
         </member>
+        <member name="P:Commons.OperationResult.FailureResult.ErrorCode">
+            <summary>
+            Gets or sets a code for the failure.
+            </summary>
+        </member>
         <member name="P:Commons.OperationResult.FailureResult.ErrorTitle">
             <summary>
             Gets or sets a title for the failure.
@@ -63,13 +68,13 @@
         </member>
         <member name="T:Commons.OperationResult.IResult">
             <summary>
-            Implements the Operation result pattern.
+            Define the contract for the Operation result pattern.
             Represents the result of executing an operation that doesn't return any value.
             </summary>
         </member>
         <member name="T:Commons.OperationResult.IResult`1">
             <summary>
-            Implements the Operation result pattern.
+            Defines the contract for the Operation result pattern.
             Represents the result of executing an operation that return a value.
             </summary>
             <typeparam name="TResult">Return type of the operation.</typeparam>
@@ -113,10 +118,11 @@
             <param name="value">The return value of the operation.</param>
             <returns>A new instance of <see cref="M:Commons.OperationResult.Result.Success``1(``0)"/>.</returns>
         </member>
-        <member name="M:Commons.OperationResult.Result.Failure(System.String,System.String)">
+        <member name="M:Commons.OperationResult.Result.Failure(System.String,System.String,System.String)">
             <summary>
             Creates a new <see cref="T:Commons.OperationResult.FailureResult"/>.
             </summary>
+            <param name="code">Code for the error.</param>
             <param name="title">Title for the error.</param>
             <param name="description">Description of the error.</param>
             <returns>A new instance of <see cref="T:Commons.OperationResult.FailureResult"/>.</returns>

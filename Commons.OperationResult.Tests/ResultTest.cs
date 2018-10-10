@@ -35,12 +35,13 @@ namespace Commons.OperationResult.Tests
             // Arrange:
             var sample = new FailureResult
             {
+                ErrorCode = "Some Code",
                 ErrorTitle = "Some Title",
                 ErrorDescription = "Some Description",
             };
 
             // Act:
-            var result = Result.Failure(sample.ErrorTitle, sample.ErrorDescription);
+            var result = Result.Failure(sample.ErrorCode, sample.ErrorTitle, sample.ErrorDescription);
 
             // Assert:
             result.Should().BeOfType<FailureResult>()

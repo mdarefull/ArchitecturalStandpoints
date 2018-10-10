@@ -14,7 +14,7 @@ namespace Commons.OperationResult.Tests
             // Arrange:
             var type = typeof(NotFoundResult<object>);
             var basicMembers = 5;
-            var inheritedMembers = 2 * 3 + 1;
+            var inheritedMembers = 3 * 3 + 1;
             var implementedMembers = 0;
             var totalMembers = basicMembers + inheritedMembers + implementedMembers;
 

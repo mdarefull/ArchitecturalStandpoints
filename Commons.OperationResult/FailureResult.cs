@@ -8,6 +8,10 @@
     public class FailureResult : IResult
     {
         /// <summary>
+        /// Gets or sets a code for the failure.
+        /// </summary>
+        public virtual string ErrorCode { get; set; }
+        /// <summary>
         /// Gets or sets a title for the failure.
         /// </summary>
         public virtual string ErrorTitle { get; set; }

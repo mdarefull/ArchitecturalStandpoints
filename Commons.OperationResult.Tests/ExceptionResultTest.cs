@@ -12,7 +12,7 @@ namespace Commons.OperationResult.Tests
             // Arrange:
             var type = typeof(ExceptionResult);
             var basicMembers = 5;
-            var inheritedMembers = 2 * 3;
+            var inheritedMembers = 3 * 3;
             var implementedMembers = 1 * 3;
             var totalMembers = basicMembers + inheritedMembers + implementedMembers;
 
@@ -29,7 +29,7 @@ namespace Commons.OperationResult.Tests
             // Arrange:
             var type = typeof(ExceptionResult<object>);
             var basicMembers = 5;
-            var inheritedMembers = 2 * 3 + 1 * 3;
+            var inheritedMembers = 3 * 3 + 1 * 3;
             var implementedMembers = 1;
             var totalMembers = basicMembers + inheritedMembers + implementedMembers;
 
