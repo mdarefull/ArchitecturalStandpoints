@@ -253,5 +253,49 @@
         <member name="M:Commons.Repository.RepositoryBase`1.#ctor(Commons.Repository.IUnitOfWork)">
             <inheritdoc />
         </member>
+        <member name="T:Commons.Repository.UnitOfWork">
+            <summary>
+            Implementation of <see cref="T:Commons.Repository.IUnitOfWork"/> to work with ADO.NET's <see cref="T:System.Data.IDbConnection"/>.
+            </summary>
+        </member>
+        <member name="P:Commons.Repository.UnitOfWork.Connection">
+            <inheritdoc />
+        </member>
+        <member name="P:Commons.Repository.UnitOfWork.Transaction">
+            <inheritdoc />
+        </member>
+        <member name="M:Commons.Repository.UnitOfWork.#ctor(System.Data.IDbConnection)">
+            <summary>
+            Creates a new instance of <see cref="T:Commons.Repository.UnitOfWork"/>.
+            </summary>
+            <param name="connection">
+            <see cref="T:System.Data.IDbConnection"/>'s instance to be used to perform all Db operation that 
+            this UoW will relate to.
+            </param>
+        </member>
+        <member name="M:Commons.Repository.UnitOfWork.BeginTransaction(System.Nullable{System.Data.IsolationLevel})">
+            <inheritdoc />
+        </member>
+        <member name="M:Commons.Repository.UnitOfWork.Commit">
+            <inheritdoc />
+        </member>
+        <member name="M:Commons.Repository.UnitOfWork.Rollback">
+            <inheritdoc />
+        </member>
+        <member name="M:Commons.Repository.UnitOfWork.Dispose(System.Boolean)">
+            <summary>
+            Automatically generated implementation of the IDisposable pattern.
+            </summary>
+        </member>
+        <member name="M:Commons.Repository.UnitOfWork.DisposeTransaction">
+            <summary>
+            Automatically generated implementation of the IDisposable pattern.
+            </summary>
+        </member>
+        <member name="M:Commons.Repository.UnitOfWork.Dispose">
+            <summary>
+            Automatically generated implementation of the IDisposable pattern.
+            </summary>
+        </member>
     </members>
 </doc>

@@ -14,8 +14,8 @@ namespace Commons.OperationResult.Tests
             var basicMembers = 5;
 
             // Assert:
-            type.Should().Implement<IResult>()
-                .And.Subject.GetMembers().Should().HaveCount(basicMembers);
+            type.Should().Implement<IResult>();
+            type.GetMembers().Should().HaveCount(basicMembers);
         }
 
         [Fact]

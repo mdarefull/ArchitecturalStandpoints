@@ -34,7 +34,7 @@
         /// and then invokes <see cref="Equals(IEntity{TId})"/>.
         /// </remarks>
         public override bool Equals(object obj)
-            => obj is EntityBase<TId> entity
+            => obj is IEntity<TId> entity
             && Equals(entity);
 
         /// <summary>
@@ -52,5 +52,5 @@
     /// <summary>
     /// Basic implementation of an <see cref="IEntity{TId}"/> of type <code>long</code>.
     /// </summary>
-    public abstract class EntityBase : EntityBase<long> { }
+    public abstract class EntityBase : EntityBase<long>, IEntity { }
 }
