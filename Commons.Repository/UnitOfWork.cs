@@ -1,36 +1,60 @@
-﻿using Commons.OperationResult;
+﻿using System;
 using System.Data;
+
+using Commons.OperationResult;
 
 namespace Commons.Repository
 {
+    /// <summary>
+    /// Implementation of <see cref="IUnitOfWork"/> to work with ADO.NET's <see cref="IDbConnection"/>.
+    /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
-        public IDbConnection Connection { get; set; }
-        public IDbTransaction Transaction { get; set; }
+        /// <inheritdoc />
+        public virtual IDbConnection Connection { get; }
+        /// <inheritdoc />
+        public virtual IDbTransaction Transaction { get; protected set; }
+        /// <summary>
+        /// Creates a new instance of <see cref="UnitOfWork"/>.
+        /// </summary>
+        /// <param name="connection">
+        /// <see cref="IDbConnection"/>'s instance to be used to perform all Db operation that 
+        /// this UoW will relate to.
+        /// </param>
         public UnitOfWork(IDbConnection connection) => Connection = connection;
 
-        // [TODO] The default IL value is DB-specific.
-        public IResult<IDbTransaction> BeginTransaction(IsolationLevel? isolationLevel = null)
+        /// <inheritdoc />
+        public virtual IResult BeginTransaction(IsolationLevel? isolationLevel = null)
         {
+            if (Transaction != null)
+            {
+                return Result.Exception(new InvalidOperationException("There's a transaction already in progress."));
+            }
+
             // [TODO] Improve this, we should check and understand each one of the Connection.State values.
             Connection.Open();
 
             var transaction = isolationLevel.HasValue
                             ? Connection.BeginTransaction(isolationLevel.Value)
                             : Connection.BeginTransaction();
-            return Result.Success(transaction);
+            return Result.Success();
         }
 
-        public IResult Commit()
+        /// <inheritdoc />
+        public virtual IResult Commit()
         {
+            if (Transaction == null)
+            {
+                return Result.Exception(new InvalidOperationException("There's no transaction in progress."));
+            }
             try
             {
                 Transaction.Commit();
             }
-            catch
+            catch (Exception e)
             {
                 Transaction.Rollback();
-                throw;
+                return Result.Exception(e);
             }
             finally
             {
@@ -41,11 +65,20 @@ namespace Commons.Repository
             return Result.Success();
         }
 
-        public IResult Rollback()
+        /// <inheritdoc />
+        public virtual IResult Rollback()
         {
+            if (Transaction == null)
+            {
+                return Result.Exception(new InvalidOperationException("There's no transaction in progress."));
+            }
             try
             {
                 Transaction.Rollback();
+            }
+            catch (Exception e)
+            {
+                return Result.Exception(e);
             }
             finally
             {
@@ -58,7 +91,9 @@ namespace Commons.Repository
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
-
+        /// <summary>
+        /// Automatically generated implementation of the IDisposable pattern.
+        /// </summary>
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -66,7 +101,7 @@ namespace Commons.Repository
                 if (disposing)
                 {
                     DisposeTransaction();
-                    DisposeConnection();
+                    Connection.Dispose();
                     // TODO: dispose managed state (managed objects).
                 }
 
@@ -76,20 +111,15 @@ namespace Commons.Repository
                 disposedValue = true;
             }
         }
+        /// <summary>
+        /// Automatically generated implementation of the IDisposable pattern.
+        /// </summary>
         protected virtual void DisposeTransaction()
         {
             if (Transaction != null)
             {
                 Transaction.Dispose();
                 Transaction = null;
-            }
-        }
-        protected virtual void DisposeConnection()
-        {
-            if (Connection != null)
-            {
-                Connection.Dispose();
-                Connection = null;
             }
         }
 
@@ -99,6 +129,9 @@ namespace Commons.Repository
         //   Dispose(false);
         // }
 
+        /// <summary>
+        /// Automatically generated implementation of the IDisposable pattern.
+        /// </summary>
         // This code added to correctly implement the disposable pattern.
         public void Dispose() =>
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
