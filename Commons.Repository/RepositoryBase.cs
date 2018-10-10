@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace Commons.Repository
 {
-    public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId> where TEntity : IEntity<TId>
+    public abstract class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
     {
         protected virtual IUnitOfWork UnitOfWork { get; set; }
-        public Repository(IUnitOfWork unitOfWork) => UnitOfWork = unitOfWork;
+        public RepositoryBase(IUnitOfWork unitOfWork) => UnitOfWork = unitOfWork;
 
         public abstract Task<IResult<TEntity>> GetByIdAsync(TId id);
         public abstract Task<IResult<IEnumerable<TEntity>>> GetAllAsync();
@@ -17,8 +17,8 @@ namespace Commons.Repository
         public abstract Task<IResult<TEntity>> RemoveAsync(TEntity entity);
     }
 
-    public abstract class Repository<TEntity> : Repository<TEntity, long> where TEntity : IEntity
+    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long>
     {
-        public Repository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        public RepositoryBase(IUnitOfWork unitOfWork) : base(unitOfWork) { }
     }
 }

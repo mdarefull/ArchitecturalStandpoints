@@ -1,13 +1,13 @@
 ﻿namespace Commons.OperationResult
 {
     /// <summary>
-    /// Implements the Operation result pattern.
+    /// Define the contract for the Operation result pattern.
     /// Represents the result of executing an operation that doesn't return any value.
     /// </summary>
     public interface IResult { }
 
     /// <summary>
-    /// Implements the Operation result pattern.
+    /// Defines the contract for the Operation result pattern.
     /// Represents the result of executing an operation that return a value.
     /// </summary>
     /// <typeparam name="TResult">Return type of the operation.</typeparam>

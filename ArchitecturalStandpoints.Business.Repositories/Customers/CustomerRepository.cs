@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ArchitecturalStandpoints.Customers
 {
-    public class CustomerRepository : Repository<Customer, string>, ICustomerRepository
+    public class CustomerRepository : RepositoryBase<Customer, string>, ICustomerRepository
     {
         public CustomerRepository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
