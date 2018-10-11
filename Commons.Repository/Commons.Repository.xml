@@ -198,13 +198,7 @@
             <typeparam name="TEntity">Type of the entity that this repository will manage.</typeparam>
             <typeparam name="TId">Type of the <typeparamref name="TEntity"/>'s id.</typeparam>
         </member>
-        <member name="P:Commons.Repository.RepositoryBase`2.UnitOfWork">
-            <summary>
-            Gets the service that implements the Unit of Work pattern
-            that will be used to perform the operations on this repository.
-            </summary>
-        </member>
-        <member name="M:Commons.Repository.RepositoryBase`2.#ctor(Commons.Repository.IUnitOfWork)">
+        <member name="M:Commons.Repository.RepositoryBase`2.#ctor(Commons.Repository.UnitOfWork)">
             <summary>
             Creates a new instance of <see cref="T:Commons.Repository.RepositoryBase`2"/>.
             </summary>
@@ -236,7 +230,7 @@
             </summary>
             <typeparam name="TEntity">Type of the entity that this repository will manage.</typeparam>
         </member>
-        <member name="M:Commons.Repository.RepositoryBase`1.#ctor(Commons.Repository.IUnitOfWork)">
+        <member name="M:Commons.Repository.RepositoryBase`1.#ctor(Commons.Repository.UnitOfWork)">
             <inheritdoc />
         </member>
         <member name="T:Commons.Repository.UnitOfWork">

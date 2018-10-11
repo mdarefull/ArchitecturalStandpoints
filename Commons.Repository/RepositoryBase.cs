@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Threading.Tasks;
 
 using Commons.OperationResult;
@@ -12,18 +13,22 @@ namespace Commons.Repository
     /// <typeparam name="TId">Type of the <typeparamref name="TEntity"/>'s id.</typeparam>
     public abstract class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
     {
+        private UnitOfWork UnitOfWork { get; }
         /// <summary>
-        /// Gets the service that implements the Unit of Work pattern
-        /// that will be used to perform the operations on this repository.
+        /// Gets the <see cref="IDbConnection"/> that should be used to access the data store.
         /// </summary>
-        protected virtual IUnitOfWork UnitOfWork { get; }
+        protected IDbConnection Connection => UnitOfWork.Connection;
+        /// <summary>
+        /// Gets the <see cref="IDbTransaction"/> in progress on the <see cref="Connection"/> if one. Null if there's no one in progress.
+        /// </summary>
+        protected IDbTransaction Transaction => UnitOfWork.Transaction;
         /// <summary>
         /// Creates a new instance of <see cref="RepositoryBase{TEntity, TId}"/>.
         /// </summary>
         /// <param name="unitOfWork">
         /// Service that implements the Unit of Work pattern that will be used to perform the operations on this repository.
         /// </param>
-        public RepositoryBase(IUnitOfWork unitOfWork) => UnitOfWork = unitOfWork;
+        public RepositoryBase(UnitOfWork unitOfWork) => UnitOfWork = unitOfWork;
 
         /// <inheritdoc />
         public abstract Task<IResult<TEntity>> GetByIdAsync(TId id);
@@ -46,6 +51,6 @@ namespace Commons.Repository
     public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long>, IRepository<TEntity>
     {
         /// <inheritdoc />
-        public RepositoryBase(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        public RepositoryBase(UnitOfWork unitOfWork) : base(unitOfWork) { }
     }
 }

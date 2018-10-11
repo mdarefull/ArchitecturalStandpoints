@@ -21,7 +21,7 @@ namespace Commons.Repository.Tests
             type.IsClass.Should().BeTrue();
             type.IsGenericType.Should().BeTrue();
             type.Should().Implement<IRepository<object, int>>()
-                .And.HaveConstructor(new[] { typeof(IUnitOfWork) });
+                .And.HaveConstructor(new[] { typeof(UnitOfWork) });
             type.GetMembers().Should().HaveCount(totalMembers);
         }
 
