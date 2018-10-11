@@ -80,6 +80,7 @@ namespace Commons.Repository
             {
                 return Result.Exception(new InvalidOperationException("There's no transaction in progress."));
             }
+
             try
             {
                 Transaction.Commit();
@@ -120,13 +121,18 @@ namespace Commons.Repository
             {
                 return Result.Exception(new InvalidOperationException("There's no transaction in progress."));
             }
+
             try
             {
                 Transaction.Rollback();
             }
             catch (Exception e)
             {
-                return Result.Exception(e);
+                return new ExceptionResult
+                {
+                    ErrorCode = "Error trying to rollback the transaction.",
+                    InnerException = e,
+                };
             }
             finally
             {
