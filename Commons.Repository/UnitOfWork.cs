@@ -10,10 +10,18 @@ namespace Commons.Repository
     /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
-        /// <inheritdoc />
-        public virtual IDbConnection Connection { get; }
-        /// <inheritdoc />
-        public virtual IDbTransaction Transaction { get; protected set; }
+        /// <summary>
+        /// Gets the <see cref="IDbConnection"/>'s instance that 
+        /// represents the connection to the underlying Database.
+        /// </summary>
+        protected internal virtual IDbConnection Connection { get; }
+        /// <summary>
+        /// Gets the <see cref="IDbTransaction"/>'s instance that
+        /// represents the current transaction in progress.
+        /// <code>null</code> if there's no transaction in progress for the
+        /// <see cref="Connection"/>.
+        /// </summary>
+        protected internal virtual IDbTransaction Transaction { get; protected set; }
         /// <summary>
         /// Creates a new instance of <see cref="UnitOfWork"/>.
         /// </summary>
@@ -31,12 +39,37 @@ namespace Commons.Repository
                 return Result.Exception(new InvalidOperationException("There's a transaction already in progress."));
             }
 
-            // [TODO] Improve this, we should check and understand each one of the Connection.State values.
-            Connection.Open();
+            if (Connection.State == ConnectionState.Closed)
+            {
+                try
+                {
+                    Connection.Open();
+                }
+                catch (Exception e)
+                {
+                    return new ExceptionResult
+                    {
+                        ErrorCode = "Error opening the connection.",
+                        InnerException = e,
+                    };
+                }
+            }
 
-            var transaction = isolationLevel.HasValue
+            try
+            {
+                Transaction = isolationLevel.HasValue
                             ? Connection.BeginTransaction(isolationLevel.Value)
                             : Connection.BeginTransaction();
+            }
+            catch (Exception e)
+            {
+                return new ExceptionResult
+                {
+                    ErrorCode = "Error beginning the transaction.",
+                    InnerException = e,
+                };
+            }
+
             return Result.Success();
         }
 
@@ -53,8 +86,23 @@ namespace Commons.Repository
             }
             catch (Exception e)
             {
-                Transaction.Rollback();
-                return Result.Exception(e);
+                try
+                {
+                    Transaction.Rollback();
+                    return new ExceptionResult
+                    {
+                        ErrorCode = "Error committing the transaction.",
+                        InnerException = e,
+                    };
+                }
+                catch (Exception e2)
+                {
+                    return new ExceptionResult
+                    {
+                        ErrorCode = "Error trying to rollback a failed committed.",
+                        InnerException = e2,
+                    };
+                }
             }
             finally
             {

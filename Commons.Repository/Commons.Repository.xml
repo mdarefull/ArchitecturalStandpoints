@@ -157,23 +157,9 @@
             Defines the contract for the Unit of Work pattern.
             </summary>
         </member>
-        <member name="P:Commons.Repository.IUnitOfWork.Connection">
-            <summary>
-            Gets the <see cref="T:System.Data.IDbConnection"/>'s instance that 
-            represents the connection to the underlying Database.
-            </summary>
-        </member>
-        <member name="P:Commons.Repository.IUnitOfWork.Transaction">
-            <summary>
-            Gets the <see cref="T:System.Data.IDbTransaction"/>'s instance that
-            represents the current transaction in progress.
-            <code>null</code> if there's no transaction in progress for the
-            <see cref="P:Commons.Repository.IUnitOfWork.Connection"/>.
-            </summary>
-        </member>
         <member name="M:Commons.Repository.IUnitOfWork.BeginTransaction(System.Nullable{System.Data.IsolationLevel})">
             <summary>
-            Begins a new transaction over the <see cref="P:Commons.Repository.IUnitOfWork.Connection"/>.
+            Begins a new transaction.
             </summary>
             <param name="isolationLevel">
             Specifies the transaction locking behavior for the transaction.
@@ -181,7 +167,7 @@
             </param>
             <returns><see cref="T:Commons.OperationResult.SuccessResult"/> if the transaction could be started, <see cref="T:Commons.OperationResult.FailureResult"/> otherwise.</returns>
             <remarks>
-            If this method is invoked when a transaction is already in progress for the <see cref="P:Commons.Repository.IUnitOfWork.Connection"/>, 
+            If this method is invoked when a transaction is already in progress, 
             an <see cref="T:Commons.OperationResult.ExceptionResult"/> will be generated wrapping an <see cref="T:System.InvalidOperationException"/>.
             </remarks>
         </member>
@@ -259,10 +245,18 @@
             </summary>
         </member>
         <member name="P:Commons.Repository.UnitOfWork.Connection">
-            <inheritdoc />
+            <summary>
+            Gets the <see cref="T:System.Data.IDbConnection"/>'s instance that 
+            represents the connection to the underlying Database.
+            </summary>
         </member>
         <member name="P:Commons.Repository.UnitOfWork.Transaction">
-            <inheritdoc />
+            <summary>
+            Gets the <see cref="T:System.Data.IDbTransaction"/>'s instance that
+            represents the current transaction in progress.
+            <code>null</code> if there's no transaction in progress for the
+            <see cref="P:Commons.Repository.UnitOfWork.Connection"/>.
+            </summary>
         </member>
         <member name="M:Commons.Repository.UnitOfWork.#ctor(System.Data.IDbConnection)">
             <summary>
