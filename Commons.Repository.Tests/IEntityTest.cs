@@ -13,8 +13,7 @@ namespace Commons.Repository.Tests
         {
             // Arrange
             var type = typeof(IEntity<object>);
-            var definedMembers = 1 * 3;
-            var totalMembers = definedMembers;
+            var totalMembers = 1 * 3;
 
             // Assert
             type.IsInterface.Should().BeTrue();

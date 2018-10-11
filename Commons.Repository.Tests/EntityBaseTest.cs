@@ -67,26 +67,6 @@ namespace Commons.Repository.Tests
             result.Should().BeFalse();
         }
         [Fact]
-        public void EqualsOfEntity_IdEqualsTrueAndSameClassesDistincType_False()
-        {
-            // Arrange
-            var idStub = Mock.Of<object>(s => s.Equals(It.IsAny<object>()) == true);
-            var subjectMock = new Mock<EntityBase<object>>
-            {
-                CallBase = true
-            };
-            subjectMock.SetupProperty(s => s.Id, idStub);
-            var subject = subjectMock.Object;
-
-            var other = Mock.Of<EntityBase<int>>();
-
-            // Act
-            var result = subject.Equals(other);
-
-            // Assert
-            result.Should().BeFalse();
-        }
-        [Fact]
         public void EqualsOfEntity_IdEqualsTrueAndSameClasses_True()
         {
             // Arrange
@@ -108,36 +88,62 @@ namespace Commons.Repository.Tests
         }
 
         [Fact]
-        public void EqualsOfObject_ObjIsIEntity_InvokesEqualsOfEntity()
-        {
-            // Arrange
-
-            // Act
-
-            // Assert
-
-        }
-
-        [Fact]
         public void EqualsOfObject_ObjIsNotEntity_False()
         {
             // Arrange
+            var subject = new Mock<EntityBase<object>>
+            {
+                CallBase = true,
+            }.Object;
+            var other = 0;
 
             // Act
+            var result = subject.Equals(other);
 
             // Assert
+            result.Should().BeFalse();
+        }
 
+        [Fact]
+        public void EqualsOfObject_ObjIsIEntity_InvokesEqualsOfEntity()
+        {
+            // Arrange
+            var subjectMock = new Mock<EntityBase<object>>
+            {
+                CallBase = true,
+            };
+            subjectMock
+            .Setup(s => s.Equals(It.IsAny<EntityBase<object>>()))
+            .Returns(true);
+            var subject = subjectMock.Object;
+
+            var other = Mock.Of<EntityBase<object>>();
+
+            // Act
+            subject.Equals(other as object);
+
+            // Assert
+            subjectMock.Verify(s => s.Equals(It.IsAny<EntityBase<object>>()), Times.Once);
         }
 
         [Fact]
         public void GetHashCode_Invoke_ReturnsIdGetHashCode()
         {
             // Arrange
+            var expectedHashCode = 12345;
+            var idStub = Mock.Of<object>(s => s.GetHashCode() == expectedHashCode);
+            var subject = new Mock<EntityBase<object>>
+            {
+                CallBase = true
+            }
+            .SetupProperty(s => s.Id, idStub)
+            .Object;
 
             // Act
+            var hashCode = subject.GetHashCode();
 
             // Assert
-
+            hashCode.Should().Be(expectedHashCode);
         }
 
         [Fact]

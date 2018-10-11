@@ -43,7 +43,7 @@ namespace Commons.Repository
     /// Basic implementation of an <see cref="IRepository{TEntity, TId}"/> with id of type <code>long</code>.
     /// </summary>
     /// <typeparam name="TEntity">Type of the entity that this repository will manage.</typeparam>
-    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long>
+    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long>, IRepository<TEntity>
     {
         /// <inheritdoc />
         public RepositoryBase(IUnitOfWork unitOfWork) : base(unitOfWork) { }
