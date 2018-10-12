@@ -1,11 +1,10 @@
-﻿using Commons.Api;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Commons.OperationResult;
 using Commons.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ArchitecturalStandpoints.Customers
 {
@@ -14,8 +13,10 @@ namespace ArchitecturalStandpoints.Customers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public sealed class CustomerController : BaseController
+    public sealed class CustomerController : ControllerBase
     {
+        private ILogger Logger { get; }
+        private IUnitOfWork UnitOfWork { get; }
         private ICustomerRepository Repository { get; }
         /// <summary>
         /// Creates a new instance of a <see cref="CustomerController"/>
@@ -24,7 +25,12 @@ namespace ArchitecturalStandpoints.Customers
         /// <param name="logger">Logger implementation.</param>
         /// <param name="unitOfWork">Unit of Work implementation.</param>
         public CustomerController(ICustomerRepository repository,
-                                  ILogger<CustomerController> logger, IUnitOfWork unitOfWork) : base(logger, unitOfWork) => Repository = repository;
+                                  ILogger<CustomerController> logger, IUnitOfWork unitOfWork)
+        {
+            Logger = logger;
+            UnitOfWork = unitOfWork;
+            Repository = repository;
+        }
 
         // GET: api/Customer
         /// <summary>
@@ -85,7 +91,7 @@ namespace ArchitecturalStandpoints.Customers
                 return success.Value;
             }
 
-            Logger.LogError("Unexpected Return Type", result);
+            Logger.LogError($"Unexpected Return Type: {result}");
             return StatusCode(501);
         }
 

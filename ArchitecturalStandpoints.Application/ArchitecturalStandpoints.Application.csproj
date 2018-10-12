@@ -26,7 +26,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ArchitecturalStandpoints.Application.Root\ArchitecturalStandpoints.Application.Root.csproj" />
     <ProjectReference Include="..\ArchitecturalStandpoints.Business.Abstracts\ArchitecturalStandpoints.Business.Abstracts.csproj" />
-    <ProjectReference Include="..\Commons.Api\Commons.Api.csproj" />
     <ProjectReference Include="..\Commons.OperationResult\Commons.OperationResult.csproj" />
   </ItemGroup>
 

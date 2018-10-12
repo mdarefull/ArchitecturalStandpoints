@@ -1,27 +1,28 @@
-﻿using Commons.OperationResult;
-using Commons.Repository;
-using Dapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
+using Commons.OperationResult;
+using Commons.Repository;
+
+using Dapper;
 
 namespace ArchitecturalStandpoints.Customers
 {
     public class CustomerRepository : RepositoryBase<Customer, string>, ICustomerRepository
     {
-        public CustomerRepository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
+        public CustomerRepository(UnitOfWork unitOfWork) : base(unitOfWork) { }
 
         public override async Task<IResult<Customer>> GetByIdAsync(string id)
         {
             var sql = "SELECT TOP(1) * FROM Customers WHERE CustomerId = @Id";
             try
             {
-                var customer = await UnitOfWork
-                                    .Connection
+                var customer = await Connection
                                     .QueryFirstOrDefaultAsync<Customer>(
                                         sql: sql,
                                         param: new { id },
-                                        transaction: UnitOfWork.Transaction);
+                                        transaction: Transaction);
                 return customer == null
                     ? Result.NotFound<Customer>()
                     : Result.Success(customer);
@@ -37,11 +38,10 @@ namespace ArchitecturalStandpoints.Customers
             var sql = "SELECT * FROM Customers";
             try
             {
-                var customers = await UnitOfWork
-                                     .Connection
+                var customers = await Connection
                                      .QueryAsync<Customer>(
                                         sql: sql,
-                                        transaction: UnitOfWork.Transaction);
+                                        transaction: Transaction);
                 return Result.Success(customers);
             }
             catch (Exception e)
@@ -75,16 +75,14 @@ namespace ArchitecturalStandpoints.Customers
                                    ,@PostalCode
                                    ,@Country
                                    ,@Phone
-                                   ,@Fax)
-                        GO";
+                                   ,@Fax)";
             try
             {
-                var rows = await UnitOfWork
-                            .Connection
-                            .ExecuteAsync(
-                                sql: sql,
-                                param: entity,
-                                transaction: UnitOfWork.Transaction);
+                var rows = await Connection
+                                .ExecuteAsync(
+                                    sql: sql,
+                                    param: entity,
+                                    transaction: Transaction);
                 return rows == 1
                     ? Result.Success(entity)
                     : Result.Failure<Customer>("Could not insert");

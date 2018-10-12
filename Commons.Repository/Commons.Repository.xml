@@ -198,6 +198,16 @@
             <typeparam name="TEntity">Type of the entity that this repository will manage.</typeparam>
             <typeparam name="TId">Type of the <typeparamref name="TEntity"/>'s id.</typeparam>
         </member>
+        <member name="P:Commons.Repository.RepositoryBase`2.Connection">
+            <summary>
+            Gets the <see cref="T:System.Data.IDbConnection"/> that should be used to access the data store.
+            </summary>
+        </member>
+        <member name="P:Commons.Repository.RepositoryBase`2.Transaction">
+            <summary>
+            Gets the <see cref="T:System.Data.IDbTransaction"/> in progress on the <see cref="P:Commons.Repository.RepositoryBase`2.Connection"/> if one. Null if there's no one in progress.
+            </summary>
+        </member>
         <member name="M:Commons.Repository.RepositoryBase`2.#ctor(Commons.Repository.UnitOfWork)">
             <summary>
             Creates a new instance of <see cref="T:Commons.Repository.RepositoryBase`2"/>.
