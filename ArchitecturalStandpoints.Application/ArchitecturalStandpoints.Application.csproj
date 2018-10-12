@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\repos\ArchitecturalStandpoints\ArchitecturalStandpoints.Application\ArchitecturalStandpoints.Application.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>
