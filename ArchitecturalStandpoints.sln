@@ -63,9 +63,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons.OperationResult.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons.Repository.Tests", "Commons.Repository.Tests\Commons.Repository.Tests.csproj", "{18F03858-91A9-41E1-AE23-D6BB126B7642}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Application.FunctionalTests", "ArchitecturalStandpoints.Application.FunctionalTests\ArchitecturalStandpoints.Application.FunctionalTests.csproj", "{CAACDD16-108D-40A2-97DF-406B7EB06599}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturalStandpoints.Application.FunctionalTests", "ArchitecturalStandpoints.Application.FunctionalTests\ArchitecturalStandpoints.Application.FunctionalTests.csproj", "{CAACDD16-108D-40A2-97DF-406B7EB06599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturalStandpoints.Application.Tests", "ArchitecturalStandpoints.Application.Tests\ArchitecturalStandpoints.Application.Tests.csproj", "{94E42448-A119-41C3-B646-F8B7466E8B03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturalStandpoints.Application.Tests", "ArchitecturalStandpoints.Application.Tests\ArchitecturalStandpoints.Application.Tests.csproj", "{94E42448-A119-41C3-B646-F8B7466E8B03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons.AspNet", "Commons.AspNet\Commons.AspNet.csproj", "{665B804A-037C-4F76-986D-A414F88483B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,10 @@ Global
 		{94E42448-A119-41C3-B646-F8B7466E8B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94E42448-A119-41C3-B646-F8B7466E8B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94E42448-A119-41C3-B646-F8B7466E8B03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665B804A-037C-4F76-986D-A414F88483B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665B804A-037C-4F76-986D-A414F88483B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665B804A-037C-4F76-986D-A414F88483B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665B804A-037C-4F76-986D-A414F88483B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -151,6 +157,7 @@ Global
 		{18F03858-91A9-41E1-AE23-D6BB126B7642} = {01CBD95D-86BF-43BB-8DC4-F864D2012486}
 		{CAACDD16-108D-40A2-97DF-406B7EB06599} = {CC3D2052-2EAC-4BCD-906E-A71AE208DD42}
 		{94E42448-A119-41C3-B646-F8B7466E8B03} = {CC3D2052-2EAC-4BCD-906E-A71AE208DD42}
+		{665B804A-037C-4F76-986D-A414F88483B5} = {01CBD95D-86BF-43BB-8DC4-F864D2012486}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C5CA61-5C3B-4229-831B-A6CD9F0DA1BC}

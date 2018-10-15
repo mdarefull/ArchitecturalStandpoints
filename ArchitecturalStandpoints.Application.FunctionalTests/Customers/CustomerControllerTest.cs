@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using Xunit;
 
-[assembly:AssemblyTrait("Functional Testing", "Application")]
-
 namespace ArchitecturalStandpoints.Application.FunctionalTests.Customers
 {
     public class CustomerControllerTest : IClassFixture<WebApplicationFactory<Startup>>
